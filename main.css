@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Quantico&display=swap");
+* {
+  font-family: "quantico";
+  background-color: #e1e1e1;
+  font-size: 14px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+.main__heading {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+.main__sub-heading-how-to-play {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.main__paragraph {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.main__play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: darkblue;
+  border-radius: 5px;
+  background: #c8efd6;
+  background: linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
+  background: -moz-linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
+  background: -webkit-linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
+}
+
+.main__play-game-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: darkblue;
+  border-radius: 5px;
+  background: #c8efd6;
+  background: linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
+  background: -moz-linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
+  background: -webkit-linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
+}
+
+.colour-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.colour-board__colour-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+#blue {
+  background-color: blue;
+}
+
+#orange {
+  background-color: orange;
+}
+
+#green {
+  background-color: green;
+}
+
+#pink {
+  background-color: fuchsia;
+}
+
+#red {
+  background-color: red;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+#purple {
+  background-color: purple;
+}
+
+#aqua {
+  background-color: aquamarine;
+}
+
+.blue-peg-stylings {
+  background-color: blue;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.orange-peg-stylings {
+  background-color: orange;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+}
+
+.question-marks {
+  grid-column: 1/7;
+  border: solid green;
+}
+
+.input-pegs {
+  border: solid black;
+  grid-column: 1/6;
+}
+
+.score-section {
+  border: solid palevioletred;
+  grid-column: 6/8;
+}
