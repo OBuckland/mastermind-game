@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Quantico&display=swap');
+$font-body: "quantico";
+$colour-background-starter-page: rgb(225, 225, 225);
+$colour-background-play-page: rgb(206, 207, 209);
+$colour-background-board: rgba(46, 49, 64, 1);
+$colour-blank-spaces: rgba(229, 229, 229, 1);
+
+* {
+    font-family: $font-body;
+    background-color: $colour-background-starter-page;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+
+&__heading {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+&__sub-heading-how-to-play{
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+&__paragraph {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+}
+
+
+.main__play-btn  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: darkblue;
+    border-radius: 5px;
+    background: hsla(141, 54%, 86%, 1);
+
+    background: linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
+}
+
+.main__play-game-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: darkblue;
+    border-radius: 5px;
+    background: hsla(141, 54%, 86%, 1);
+
+    background: linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
+}
+
+.colour-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    &__colour-btn {
+
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+}
+
+    #blue{
+        background-color: blue;
+    }
+    #orange {
+        background-color: orange;
+    }
+    #green {
+        background-color: green;
+    }
+    #pink {
+        background-color: fuchsia;
+    }
+    #red {
+        background-color: red;
+    }
+    #yellow {
+        background-color: yellow;
+    }
+    #purple {
+        background-color: purple;
+    }
+    #aqua {
+        background-color: aquamarine;
+    }
+
+
+
+
+.blue-peg-stylings {
+    background-color: blue;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.orange-peg-stylings {
+    background-color: orange;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.remove-stylings{
+    
+}

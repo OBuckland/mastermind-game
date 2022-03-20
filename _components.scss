@@ -1,0 +1,26 @@
+//grid 
+
+.game-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+
+
+}
+
+.question-marks {
+    grid-column:  1/7;
+    border: solid green;
+}
+
+
+
+.input-pegs {
+    border: solid black;
+    grid-column: 1/6;
+}
+
+.score-section {
+    border: solid palevioletred;
+    grid-column: 6/8;
+}
+
