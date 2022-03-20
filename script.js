@@ -5,13 +5,7 @@ const mainContainer = document.querySelector(".main")
 let currentCharacter = "";
 const inputs = []
 
-const checkInputLength = () => {
-    if (input1.innerHTML.checkInputLength < 5) {
-        inputLengthBelowMax = true;
-    } else {
-        inputLengthBelowMax = false;
-    }
-}
+
 
 // Functions 
 const howToPlayPage = () => {
@@ -33,12 +27,12 @@ const howToPlayPage = () => {
     playBtn.addEventListener("click", gamePlayPage);
 };
 
- howToPlayBtn.addEventListener("click", howToPlayPage);
+howToPlayBtn.addEventListener("click", howToPlayPage);
 
 const gamePlayPage = () => {
     mainContainer.innerHTML =`
     <div class="game-container">
-        <div class="question-marks">Question Marks</div>
+        <div id="code-combination">The Code</div>
         <div class="input-pegs">1 2 3 4 </div>
         <div class= "score-section">score</div>
         <div class="input-pegs">input pegs</div>
@@ -57,18 +51,18 @@ const gamePlayPage = () => {
         <div class= "score-section">score3</div>
         <div class="input-pegs">input pegs2</div>
         <div class= "score-section">score2</div>
-        <div class="input-pegs" id="input-pegs1">input pegs1</div>
+        <div class="input-pegs" id="input-pegs1"></div>
         <div class= "score-section">score1</div>
     </div>
-    <div class="colour-btn">
-        <button class="colour-btn__blue">Blue</button>
-        <button class="colour-btn__orange">Orange</button>
-        <button class="colour-btn__green">Green</button>
-        <button class="colour-btn__pink">Pink</button>
-        <button class="colour-btn__red">Red</button>
-        <button class="colour-btn__yellow">Yellow</button>
-        <button class="colour-btn__purple">Purple</button>
-        <button class="colour-btn__aqua">Aqua</button>
+    <div class="colour-board">
+        <button class="colour-board__colour-btn" id="blue">Blue</button>
+        <button class="colour-board__colour-btn" id="orange">Orange</button>
+        <button class="colour-board__colour-btn"id="green">Green</button>
+        <button class="colour-board__colour-btn" id="pink">Pink</button>
+        <button class="colour-board__colour-btn" id="red">Red</button>
+        <button class="colour-board__colour-btn" id="yellow">Yellow</button>
+        <button class="colour-board__colour-btn" id="purple">Purple</button>
+        <button class="colour-board__colour-btn" id="aqua">Aqua</button>
     </div>
     <div class="check-reset-btn">
         <button>Check</button>
@@ -77,42 +71,66 @@ const gamePlayPage = () => {
     </div>`
 const resetBtn = document.querySelector("#reset-btn")
 const deleteBtn = document.querySelector("#delete-btn")
-const blueBtn = document.querySelector(".colour-btn__blue");
-const orangeBtn = document.querySelector(".colour-btn__orange") 
+const blueBtn = document.querySelector("#blue");
+const orangeBtn = document.querySelector("#orange") 
 const input1 = document.querySelector("#input-pegs1")
 
-const addOrange = () => {
-    input1.className = "orange-peg-stylings";
-    currentCharacter = addOrange;
+const checkInputLength = () => {
+    if (input1.innerHTML.length<20) {
+        inputLengthBelowMax = true;
+    } else {
+        inputLengthBelowMax = false;
+    }
+}
+
+const addColourToGuess = () => {
+    checkInputLength ();
+    if (inputLengthBelowMax === true){
+        currentCharacter = event.target.innerHTML;
+        input1.innerHTML += currentCharacter;
+        currentCharacter.className = "orange-peg-stylings"; 
+        }
 };
-orangeBtn.addEventListener("click", addOrange)
 
 const addBlue = () => {
-    input1.className = "blue-peg-stylings";
-};
+    input1.className = "blue-peg-stylings"
+}
 
-blueBtn.addEventListener("click", addBlue)
+orangeBtn.addEventListener("click", addColourToGuess, addBlue)
+
+blueBtn.addEventListener("click", addColourToGuess)
 
     const deleteLastInput = () => {
         if (currentCharacter = deleteBtn) {
-            input1.className = "remove-stylings";
+            input1.innerHTML = "";
+        } else {
+            input1.innerHTML = input1.innerHTML.slice(0, input1.innerHTML.length-1)
         }
+        currentCharacter = deleteBtn;
     }
 
-    deleteBtn.addEventListener("click", deleteLastInput)
+deleteBtn.addEventListener("click", deleteLastInput)
+
+const colourCode = document.querySelector("#code-combination")
+const possibleColours = ["blue", "orange", "green", "pink", "red", "yellow", "purple", "aqua"]
+const getCodeCombination = () => {
+    const randomCombination = Math.floor(Math.random() * possibleColours.length)
+    colourCode.innerHTML = randomCombination
+}
+
+
+
+ //create the random color code
+//  let code = [
+//     possibleColors[Math.floor(Math.random()*4)], 
+//     possibleColors[Math.floor(Math.random()*4)],
+//     possibleColors[Math.floor(Math.random()*4)],
+//     possibleColors[Math.floor(Math.random()*4)]
+// ];
 
 
 
 
-
-
-
-
-    //     blueBtn.addEventListener(("click"), (event) => {
-    //  checkInputLength();
-    //     if (inputLengthBelowMax) {
-    //          input1.innerHTML = `${input1.className = "blue-peg-stylings"}${event.target.innerHTML}`;
-    //      } });
 
 
 // orangeBtn.addEventListener(("click"), (addOrange) => {
