@@ -2,7 +2,16 @@ const howToPlayBtn = document.querySelector(".main__play-btn");
 const heading = document.querySelector(".main__heading");
 const introText = document.querySelector(".main__paragraph");
 const mainContainer = document.querySelector(".main")
+let currentCharacter = "";
+const inputs = []
 
+const checkInputLength = () => {
+    if (input1.innerHTML.checkInputLength < 5) {
+        inputLengthBelowMax = true;
+    } else {
+        inputLengthBelowMax = false;
+    }
+}
 
 // Functions 
 const howToPlayPage = () => {
@@ -48,7 +57,7 @@ const gamePlayPage = () => {
         <div class= "score-section">score3</div>
         <div class="input-pegs">input pegs2</div>
         <div class= "score-section">score2</div>
-        <div class="input-pegs">input pegs1</div>
+        <div class="input-pegs" id="input-pegs1">input pegs1</div>
         <div class= "score-section">score1</div>
     </div>
     <div class="colour-btn">
@@ -63,9 +72,53 @@ const gamePlayPage = () => {
     </div>
     <div class="check-reset-btn">
         <button>Check</button>
-        <button>Delete</button>
-        <button>Reset</button>
+        <button id="delete-btn">Delete</button>
+        <button id="reset-btn">Reset</button>
     </div>`
+const resetBtn = document.querySelector("#reset-btn")
+const deleteBtn = document.querySelector("#delete-btn")
+const blueBtn = document.querySelector(".colour-btn__blue");
+const orangeBtn = document.querySelector(".colour-btn__orange") 
+const input1 = document.querySelector("#input-pegs1")
+
+const addOrange = () => {
+    input1.className = "orange-peg-stylings";
+    currentCharacter = addOrange;
+};
+orangeBtn.addEventListener("click", addOrange)
+
+const addBlue = () => {
+    input1.className = "blue-peg-stylings";
+};
+
+blueBtn.addEventListener("click", addBlue)
+
+    const deleteLastInput = () => {
+        if (currentCharacter = deleteBtn) {
+            input1.className = "remove-stylings";
+        }
+    }
+
+    deleteBtn.addEventListener("click", deleteLastInput)
+
+
+
+
+
+
+
+
+    //     blueBtn.addEventListener(("click"), (event) => {
+    //  checkInputLength();
+    //     if (inputLengthBelowMax) {
+    //          input1.innerHTML = `${input1.className = "blue-peg-stylings"}${event.target.innerHTML}`;
+    //      } });
+
+
+// orangeBtn.addEventListener(("click"), (addOrange) => {
+//     input1.innerHTML += currentCharacter;
+// } )
+// now i need them to go side by side instead of replacing
 }
 
 
