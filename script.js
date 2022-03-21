@@ -59,9 +59,7 @@ const gamePlayPage = () => {
         <button class="colour-board__colour-btn" id="orange">Orange</button>
         <button class="colour-board__colour-btn"id="green">Green</button>
         <button class="colour-board__colour-btn" id="pink">Pink</button>
-        <button class="colour-board__colour-btn" id="red">Red</button>
         <button class="colour-board__colour-btn" id="yellow">Yellow</button>
-        <button class="colour-board__colour-btn" id="purple">Purple</button>
         <button class="colour-board__colour-btn" id="aqua">Aqua</button>
     </div>
     <div class="check-reset-btn">
@@ -88,7 +86,6 @@ const addColourToGuess = () => {
     if (inputLengthBelowMax === true){
         currentCharacter = event.target.innerHTML;
         input1.innerHTML += currentCharacter;
-        currentCharacter.className = "orange-peg-stylings"; 
         }
 };
 
@@ -96,11 +93,18 @@ const addBlue = () => {
     input1.className = "blue-peg-stylings"
 }
 
-orangeBtn.addEventListener("click", addColourToGuess, addBlue)
-
 blueBtn.addEventListener("click", addColourToGuess)
 
-    const deleteLastInput = () => {
+blueBtn.addEventListener("click", addBlue)
+
+orangeBtn.addEventListener("click", addColourToGuess)
+
+
+
+
+
+
+const deleteLastInput = () => {
         if (currentCharacter = deleteBtn) {
             input1.innerHTML = "";
         } else {
@@ -112,7 +116,8 @@ blueBtn.addEventListener("click", addColourToGuess)
 deleteBtn.addEventListener("click", deleteLastInput)
 
 const colourCode = document.querySelector("#code-combination")
-const possibleColours = ["blue", "orange", "green", "pink", "red", "yellow", "purple", "aqua"]
+
+const possibleColours = ["blue", "orange", "green", "pink", "yellow", "aqua"]
 const getCodeCombination = () => {
     const randomCombination = Math.floor(Math.random() * possibleColours.length)
     colourCode.innerHTML = randomCombination

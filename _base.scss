@@ -74,11 +74,10 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 .colour-board {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 
     &__colour-btn {
-
         width: 30px;
         height: 30px;
         border-radius: 50%;
