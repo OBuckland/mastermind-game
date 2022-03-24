@@ -111,7 +111,7 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 
 
-
+//stylings to be added in JS to game play board
 .blue-peg-stylings {
     background-color: blue;
     width: 30px;
@@ -126,3 +126,59 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     border-radius: 50%;
 }
 
+.blue-peg-stylings {
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.pink-peg-stylings {
+    background-color: fuchsia;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.blue-peg-stylings {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.blue-peg-stylings {
+    background-color: yellow;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.blue-peg-stylings {
+    background-color: purple;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.blue-peg-stylings {
+    background-color: aquamarine;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+// Stylings for score section
+
+.white-score-peg {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+}
+
+.red-score-peg {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+}

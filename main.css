@@ -112,6 +112,62 @@
   border-radius: 50%;
 }
 
+.blue-peg-stylings {
+  background-color: green;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.pink-peg-stylings {
+  background-color: fuchsia;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.blue-peg-stylings {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.blue-peg-stylings {
+  background-color: yellow;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.blue-peg-stylings {
+  background-color: purple;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.blue-peg-stylings {
+  background-color: aquamarine;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.white-score-peg {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+}
+
+.red-score-peg {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: red;
+}
+
 .game-container {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
