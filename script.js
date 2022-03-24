@@ -50,10 +50,10 @@ const gamePlayPage = () => {
         <div class= "score-section">score4</div>
         <div class="input-pegs">input pegs3</div>
         <div class= "score-section">score3</div>
-        <div class="input-pegs">input pegs2</div>
-        <div class= "score-section">score2</div>
+        <div class="input-pegs" id = "input-pegs2">input pegs2</div>
+        <div class= "score-section" id = "score-section2">score2</div>
         <div class="input-pegs" id="input-pegs1">input 1</div>
-        <div class= "score-section">score1</div>
+        <div class= "score-section" id="score-section1">score1</div>
     </div>
     <div class="colour-board">
         <button class="colour-board__colour-btn blue-btn" id ="blue" >Blue</button>
@@ -75,6 +75,7 @@ const gamePlayPage = () => {
   const orangeBtn = document.querySelector("#orange");
   const input1 = document.querySelector("#input-pegs1");
   const codeReveal =  document.querySelector("#code-combination")
+
 
   const colorButtons = document.querySelectorAll(".colour-board__colour-btn");
 
@@ -119,18 +120,18 @@ const gamePlayPage = () => {
 
 
 //   const addBlue = () => {
-//       userCombination.innerHTML.style.className = "blue-peg-stylings"
+//       userCombination.innerHTML.style.className.add = "blue-peg-stylings"
 //   }
 
   blueBtn.addEventListener("click", () => {
       
         input1.classList.add(`blue-peg-stylings`)
-        
+
       
         // currentCharacter.innerHTML += addColour
     })
 
-    // document.getElementById("intro").classList.add('newClass');
+
   
 //   const addBlue = () {
 //       col1.className = "blue-peg-stylings"
@@ -138,9 +139,6 @@ const gamePlayPage = () => {
 
   // blueBtn.addEventListener("click", addBlue)
 
-
-
-  // orangeBtn.addEventListener("click", addColourToGuess)
 
 
 
@@ -185,19 +183,30 @@ const gamePlayPage = () => {
   // here loop through
 
   // CHECK CODE COMBINATION - CHECK BTN
-  // can't recognise correct
-  const codeCheck = () => {
-      if (userCombination === winningCombination) {
-    codeReveal.innerHTML = "you won!"
-  }  else {
-      codeReveal.innerHTML = "take another guess"
-  }}
+  // Check the fist colour against the winning combination, if the colour is in it add a white peg to the score section. Then if the colour is also in the same position say index 2, replace that with a red peg,
+  // If the colour is not there nothing happens. 
+  //Then I want to loop on to the next colour and do the same 4 times.
+  //Once all 4 have been checked I want to move to input2.
 
-  checkBtn.addEventListener("click", codeCheck);
+  const scoreSection1 = document.querySelector("#score-section1")
 
 
-  //winningCombination 
-  // }
+  const checkCode = () => {
+    if (winningCombination.includes("blue") === true && userCombination.includes("blue") === true) {
+  scoreSection1.innerHTML.classList.add("white-score-peg");
+ }  // else if // here I want to check the position of the peg if correct give red peg
+// here if neither conditions met return nothing and move on to next colour. 
+}
+ 
+
+
+  checkBtn.addEventListener("click", checkCode);
+
+  // STYLINGS FOR SCORE PEGS
+    // .white-score-peg 
+    // .red-score-peg 
+
+  
 
   // GIVE RESULT OF CHECK INTO THE SCORE SECTION
   // if right colour right place give red peg if right colour wrong place give white peg
