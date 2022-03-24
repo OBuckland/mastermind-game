@@ -52,8 +52,8 @@ const gamePlayPage = () => {
         <div class= "score-section">score3</div>
         <div class="input-pegs" id = "input-pegs2">input pegs2</div>
         <div class= "score-section" id = "score-section2">score2</div>
-        <div class="input-pegs" id="input-pegs1">input 1</div>
-        <div class= "score-section" id="score-section1">score1</div>
+        <div class="input-pegs" id="input-pegs1"></div>
+        <div class= "score-section" id="score-section1"></div>
     </div>
     <div class="colour-board">
         <button class="colour-board__colour-btn blue-btn" id ="blue" >Blue</button>
@@ -93,17 +93,21 @@ const gamePlayPage = () => {
   // ADD SELECT COLOUR TO INPUT LINE
   // need to figure out how to add the stylings to the input1
   const addColourToGuess = (event) => {
-    userCombination.push(event.target.innerText);
-    console.log(userCombination);
-    console.log(event.target.innerText);
+    input1.innerHTML = "";
+      let colourChosen = event.target.innerText;
+    userCombination.push(colourChosen);
+    console.log(userCombination, winningCombination)
+    userCombination.map(choice => {
+        return input1.innerHTML += `<span class="peg peg-${choice.toLowerCase()}"></span>`;
+    })
     if (checkInputLength === true){
         currentCharacter = event.target.innerHTML;
         console.log(currentCharacter);
         // input1.innerHTML += `<span class="">${currentCharacter}</span>`;
         userCombination.push(currentCharacter)
         }
-        input1.innerHTML = userCombination
-        console.log(userCombination)
+        // input1.innerHTML = userCombination
+        
   };
 
   colorButtons.forEach((colorButton) => {
@@ -118,28 +122,15 @@ const gamePlayPage = () => {
 
 // ADDING CSS STYLINGS OF PEGS
 
-
 //   const addBlue = () => {
 //       userCombination.innerHTML.style.className.add = "blue-peg-stylings"
 //   }
 
   blueBtn.addEventListener("click", () => {
       
-        input1.classList.add(`blue-peg-stylings`)
-
-      
+        input1.classList.add("blue-peg-stylings")
         // currentCharacter.innerHTML += addColour
     })
-
-
-  
-//   const addBlue = () {
-//       col1.className = "blue-peg-stylings"
-//   }
-
-  // blueBtn.addEventListener("click", addBlue)
-
-
 
 
   // DELETE BTN - DELETE LAST INPUT
@@ -180,7 +171,6 @@ const gamePlayPage = () => {
 //   };
 
 
-  // here loop through
 
   // CHECK CODE COMBINATION - CHECK BTN
   // Check the fist colour against the winning combination, if the colour is in it add a white peg to the score section. Then if the colour is also in the same position say index 2, replace that with a red peg,
@@ -192,15 +182,22 @@ const gamePlayPage = () => {
 
 
   const checkCode = () => {
-    if (winningCombination.includes("blue") === true && userCombination.includes("blue") === true) {
-  scoreSection1.innerHTML.classList.add("white-score-peg");
+      if (winningCombination.includes("blue")) {
+        console.log("if statement run")
+        const scorePeg = document.createElement('span');
+        scorePeg.classList.add('white-score-peg');
+        scoreSection1.appendChild(scorePeg);
+  // scoreSection1.innerHTML.classList.add("white-score-peg");
  }  // else if // here I want to check the position of the peg if correct give red peg
 // here if neither conditions met return nothing and move on to next colour. 
 }
- 
+
+
 
 
   checkBtn.addEventListener("click", checkCode);
+//   (let i = 0; i < 4; i++)
+
 
   // STYLINGS FOR SCORE PEGS
     // .white-score-peg 

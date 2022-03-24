@@ -112,21 +112,23 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 
 //stylings to be added in JS to game play board
-.blue-peg-stylings {
+
+.peg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+}
+
+.peg-blue {
     background-color: blue;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
 }
 
-.orange-peg-stylings {
+.peg-orange {
     background-color: orange;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
 }
 
-.green-peg-stylings {
+.peg-green {
     background-color: green;
     width: 30px;
     height: 30px;
@@ -153,12 +155,6 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     height: 30px;
     border-radius: 50%;
 }
-.purple-peg-stylings {
-    background-color: purple;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
 
 .aqua-peg-stylings {
     background-color: aquamarine;
@@ -173,7 +169,8 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     border-radius: 50%;
     width: 15px;
     height: 15px;
-    background-color: white;
+    background-color: green;
+    display: block;
 }
 
 .red-score-peg {

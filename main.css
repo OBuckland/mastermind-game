@@ -98,21 +98,22 @@
   background-color: aquamarine;
 }
 
-.blue-peg-stylings {
+.peg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: block;
+}
+
+.peg-blue {
   background-color: blue;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
 }
 
-.orange-peg-stylings {
+.peg-orange {
   background-color: orange;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
 }
 
-.green-peg-stylings {
+.peg-green {
   background-color: green;
   width: 30px;
   height: 30px;
@@ -140,13 +141,6 @@
   border-radius: 50%;
 }
 
-.purple-peg-stylings {
-  background-color: purple;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
 .aqua-peg-stylings {
   background-color: aquamarine;
   width: 30px;
@@ -158,7 +152,8 @@
   border-radius: 50%;
   width: 15px;
   height: 15px;
-  background-color: white;
+  background-color: green;
+  display: block;
 }
 
 .red-score-peg {
@@ -181,9 +176,12 @@
 .input-pegs {
   border: solid black;
   grid-column: 1/6;
+  display: flex;
+  align-items: center;
 }
 
 .score-section {
   border: solid palevioletred;
   grid-column: 6/8;
+  display: flex;
 }
