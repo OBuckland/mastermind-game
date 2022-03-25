@@ -7,7 +7,7 @@ const inputs = [];
 
 // Functions
 
-// HOW TO PLAY PAGE -works
+// HOW TO PLAY PAGE 
 const howToPlayPage = () => {
   mainContainer.innerHTML = `
     <h2 class = "main__sub-heading-how-to-play">How do you play?</h2>
@@ -56,7 +56,7 @@ const gamePlayPage = () => {
         <div class= "score-section" id="score-section1"></div>
     </div>
     <div class="colour-board">
-        <button class="colour-board__colour-btn blue-btn" id ="blue" >Blue</button>
+        <button class="colour-board__colour-btn" id ="blue">Blue</button>
         <button class="colour-board__colour-btn" id="orange">Orange</button>
         <button class="colour-board__colour-btn" id="green">Green</button>
         <button class="colour-board__colour-btn" id="pink">Pink</button>
@@ -71,91 +71,17 @@ const gamePlayPage = () => {
   const resetBtn = document.querySelector("#reset-btn");
   const checkBtn = document.querySelector("#check-btn");
   const deleteBtn = document.querySelector("#delete-btn");
-  const blueBtn = document.querySelector("#blue");
-  const orangeBtn = document.querySelector("#orange");
   const input1 = document.querySelector("#input-pegs1");
   const codeReveal =  document.querySelector("#code-combination")
-
-
   const colorButtons = document.querySelectorAll(".colour-board__colour-btn");
 
 
-
-  // INPUT LENGTH
-  const checkInputLength = () => {
-    if (userCombination.length > 4) {
-      inputLengthBelowMax = false;
-    } else {
-      inputLengthBelowMax = true;
-    }
-  };
-
-  // ADD SELECT COLOUR TO INPUT LINE
-  // need to figure out how to add the stylings to the input1
-  const addColourToGuess = (event) => {
-    input1.innerHTML = "";
-      let colourChosen = event.target.innerText;
-    userCombination.push(colourChosen);
-    console.log(userCombination, winningCombination)
-    userCombination.map(choice => {
-        return input1.innerHTML += `<span class="peg peg-${choice.toLowerCase()}"></span>`;
-    })
-    if (checkInputLength === true){
-        currentCharacter = event.target.innerHTML;
-        console.log(currentCharacter);
-        // input1.innerHTML += `<span class="">${currentCharacter}</span>`;
-        userCombination.push(currentCharacter)
-        }
-        // input1.innerHTML = userCombination
-        
-  };
-
-  colorButtons.forEach((colorButton) => {
-    colorButton.addEventListener("click", (event) => {
-      addColourToGuess(event);
-      if(userCombination.length >= 4) {
-          userCombination.length = 3;
-      }
-    });
-  });
-
-
-// ADDING CSS STYLINGS OF PEGS
-
-//   const addBlue = () => {
-//       userCombination.innerHTML.style.className.add = "blue-peg-stylings"
-//   }
-
-  blueBtn.addEventListener("click", () => {
-      
-        input1.classList.add("blue-peg-stylings")
-        // currentCharacter.innerHTML += addColour
-    })
-
-
-  // DELETE BTN - DELETE LAST INPUT
-  //Now doesn't work at all1
-  // at the moment this doesn't delete the last input it deletes everything
-  const deleteLastInput = () => {
-    if ((currentCharacter = deleteBtn)) {
-      input1.innerHTML = "";
-    } else {
-      input1.innerHTML = input1.innerHTML.slice(0, input1.innerHTML.length - 1);
-    }
-    currentCharacter = deleteBtn;
-  };
-
-  deleteBtn.addEventListener("click", deleteLastInput);
-
-
-
-  // CODE COMBINATION
-  // this currently just gives a random number from the array:
-
-  const possibleColours = ["blue", "orange", "green", "pink", "yellow", "aqua"];
   let winningCombination = [];
   let userCombination = [];
+  let currentRow = 1;
+  const possibleColours = ["blue", "orange", "green", "pink", "yellow", "aqua"];
 
+    // CODE COMBINATION
   for (let i = 0; i < 4; i++) {
     const randomIndex = Math.floor(Math.random() * possibleColours.length);
     const randomColour = possibleColours[randomIndex];
@@ -163,12 +89,59 @@ const gamePlayPage = () => {
   }
   console.log(winningCombination);
 
-//   const getCodeCombination = () => {
-//     const randomIndex = Math.floor(Math.random() * possibleColours.length);
-//     const randomColour = possibleColours[randomIndex];
-//     console.log(randomColour);
-//     // colourCode.innerHTML = randomCombination
+  // ADD SELECTED COLOUR TO INPUT LINE
+    const addColourToGuess = (event, rowId) => {
+        console.log(rowId);
+        const input = document.querySelector(`#input-pegs${rowId}`);
+        console.log(input);
+        input.innerHTML = "";
+        let colourChosen = event.target.innerText;
+        userCombination.push(colourChosen);
+        let currentUserCombination = [...userCombination];
+        currentUserCombination.map(colour => {
+            return (input.innerHTML += `<span class="peg peg-${colour.toLowerCase()}"></span>`);
+        });
+        console.log(userCombination, currentUserCombination);
+    };
+
+    colorButtons.forEach((colorButton) => {
+        colorButton.addEventListener("click", event => {
+            if(userCombination.length < 4) {
+            addColourToGuess(event, currentRow);
+            }
+        });
+    });
+
+    // Check code function 
+    const checkCode = () => {
+       userCombination = [];
+       currentRow += 1;
+    };
+
+    checkBtn.addEventListener("click", checkCode);
+
+
+
+  // DELETE BTN
+  const deleteLastInput = () => {
+    console.log("last choice deleted")
+  };
+
+  deleteBtn.addEventListener("click", deleteLastInput);
+
+//   const deleteLastInput = () => {
+//     if ((currentCharacter = deleteBtn)) {
+//       input1.innerHTML = "";
+//     } else {
+//       input1.innerHTML = input1.innerHTML.slice(0, input1.innerHTML.length - 1);
+//     }
+//     currentCharacter = deleteBtn;
 //   };
+
+
+
+
+
 
 
 
@@ -181,21 +154,29 @@ const gamePlayPage = () => {
   const scoreSection1 = document.querySelector("#score-section1")
 
 
-  const checkCode = () => {
-      if (winningCombination.includes("blue")) {
-        console.log("if statement run")
-        const scorePeg = document.createElement('span');
-        scorePeg.classList.add('white-score-peg');
-        scoreSection1.appendChild(scorePeg);
-  // scoreSection1.innerHTML.classList.add("white-score-peg");
- }  // else if // here I want to check the position of the peg if correct give red peg
-// here if neither conditions met return nothing and move on to next colour. 
-}
+//   const checkCode = () => {
+//       if (winningCombination.includes("blue")) {
+//         console.log("if statement run")
+//         const scorePeg = document.createElement('span');
+//         scorePeg.classList.add('white-score-peg');
+//         scoreSection1.appendChild(scorePeg);
+//   // scoreSection1.innerHTML.classList.add("white-score-peg");
+//  }  // else if // here I want to check the position of the peg if correct give red peg
+// // here if neither conditions met return nothing and move on to next colour. 
+// }
+
+// if (checkInputLength === true){
+//     currentCharacter = event.target.innerHTML;
+//     console.log(currentCharacter);
+//     // input1.innerHTML += `<span class="">${currentCharacter}</span>`;
+//     userCombination.push(currentCharacter)
+//     }
+//     // input1.innerHTML = userCombination
+    
+// };
 
 
 
-
-  checkBtn.addEventListener("click", checkCode);
 //   (let i = 0; i < 4; i++)
 
 
@@ -203,7 +184,14 @@ const gamePlayPage = () => {
     // .white-score-peg 
     // .red-score-peg 
 
-  
+  //  // INPUT LENGTH
+//   const checkInputLength = () => {
+//     if (userCombination.length > 4) {
+//       inputLengthBelowMax = false;
+//     } else {
+//       inputLengthBelowMax = true;
+//     }
+//   };
 
   // GIVE RESULT OF CHECK INTO THE SCORE SECTION
   // if right colour right place give red peg if right colour wrong place give white peg

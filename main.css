@@ -7,35 +7,8 @@
   margin: 0px;
 }
 
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-}
-.main__heading {
-  margin-bottom: 20px;
-  font-size: 26px;
-}
-.main__sub-heading-how-to-play {
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-.main__paragraph {
-  width: 80%;
-  margin-bottom: 20px;
-}
-
 .main__play-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
   color: darkblue;
-  border-radius: 5px;
   background: #c8efd6;
   background: linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
   background: -moz-linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
@@ -43,30 +16,14 @@
 }
 
 .main__play-game-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
   color: darkblue;
-  border-radius: 5px;
   background: #c8efd6;
   background: linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
   background: -moz-linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
   background: -webkit-linear-gradient(90deg, #c8efd6 0%, #f5bdd6 50%, #aac8e9 100%);
 }
 
-.colour-board {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-}
-.colour-board__colour-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-.blue-btn {
+#blue {
   background-color: blue;
 }
 
@@ -98,13 +55,6 @@
   background-color: aquamarine;
 }
 
-.peg {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: block;
-}
-
 .peg-blue {
   background-color: blue;
 }
@@ -115,37 +65,22 @@
 
 .peg-green {
   background-color: green;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
 }
 
-.pink-peg-stylings {
+.peg-pink {
   background-color: fuchsia;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
 }
 
-.red-peg-stylings {
+.peg-red {
   background-color: red;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
 }
 
-.yellow-peg-stylings {
+.peg-yellow {
   background-color: yellow;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
 }
 
-.aqua-peg-stylings {
+.peg-aqua {
   background-color: aquamarine;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
 }
 
 .white-score-peg {
@@ -161,6 +96,61 @@
   width: 15px;
   height: 15px;
   background-color: red;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+}
+.main__heading {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+.main__sub-heading-how-to-play {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.main__paragraph {
+  width: 80%;
+  margin-bottom: 20px;
+}
+.main__play-btn {
+  padding: 10px;
+  border-radius: 5px;
+}
+.main__play-game-btn {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.colour-board__colour-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.peg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.main__play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main__play-game-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-container {
@@ -184,4 +174,14 @@
   border: solid palevioletred;
   grid-column: 6/8;
   display: flex;
+}
+
+.colour-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.peg {
+  display: block;
 }
