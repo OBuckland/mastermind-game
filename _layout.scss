@@ -1,0 +1,54 @@
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    &__play-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    };
+
+    &__play-game-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    };
+};
+
+//GRID
+.game-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+}
+
+.question-marks {
+    grid-column:  1/7;
+    border: solid green;
+}
+
+.input-pegs {
+    border: solid black;
+    grid-column: 1/6;
+    display: flex;
+    align-items: center;
+}
+
+.score-section {
+    border: solid palevioletred;
+    grid-column: 6/8;
+    display: flex;
+}
+
+.colour-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.peg {
+    display: block;
+}

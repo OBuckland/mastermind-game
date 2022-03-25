@@ -13,56 +13,17 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     margin: 0px;
 }
 
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-
-&__heading {
-    margin-bottom: 20px;
-    font-size: 26px;
-}
-
-&__sub-heading-how-to-play{
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-&__paragraph {
-    width: 80%;
-    margin-bottom: 20px;
-}
-
-}
-
 
 .main__play-btn  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
     color: darkblue;
-    border-radius: 5px;
     background: hsla(141, 54%, 86%, 1);
-
     background: linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
-    
     background: -moz-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
-    
     background: -webkit-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
 }
 
 .main__play-game-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
     color: darkblue;
-    border-radius: 5px;
     background: hsla(141, 54%, 86%, 1);
 
     background: linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
@@ -72,19 +33,9 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     background: -webkit-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
 }
 
-.colour-board {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
 
-    &__colour-btn {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-    }
-}
 
-    .blue-btn{
+    #blue {
         background-color: blue;
     }
     #orange {
@@ -113,12 +64,7 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 //stylings to be added in JS to game play board
 
-.peg {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: block;
-}
+
 
 .peg-blue {
     background-color: blue;
@@ -130,37 +76,22 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 .peg-green {
     background-color: green;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
 }
 
-.pink-peg-stylings {
+.peg-pink {
     background-color: fuchsia;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
 }
 
-.red-peg-stylings {
+.peg-red {
     background-color: red;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
 }
 
-.yellow-peg-stylings {
+.peg-yellow {
     background-color: yellow;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
 }
 
-.aqua-peg-stylings {
+.peg-aqua {
     background-color: aquamarine;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
 }
 
 // Stylings for score section

@@ -1,29 +1,45 @@
-//grid 
 
-.game-container {
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+.main {
+    width: 100vw;
+    height: 100vh;
 
+    &__heading {
+        margin-bottom: 20px;
+        font-size: 26px;
+    }
 
+    &__sub-heading-how-to-play{
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    &__paragraph {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    &__play-btn {
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    &__play-game-btn {
+        padding: 10px;
+        border-radius: 5px;
+    }
 }
 
-.question-marks {
-    grid-column:  1/7;
-    border: solid green;
+.colour-board {
+
+    &__colour-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
 }
 
-
-
-.input-pegs {
-    border: solid black;
-    grid-column: 1/6;
-    display: flex;
-    align-items: center;
+.peg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
-
-.score-section {
-    border: solid palevioletred;
-    grid-column: 6/8;
-    display: flex;
-}
-
