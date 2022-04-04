@@ -13,6 +13,13 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     margin: 0px;
 }
 
+.game-container {
+    background-color: $colour-background-board;
+}
+
+.input-pegs {
+    background-color: $colour-background-board;
+}
 
 .main__play-btn  {
     color: darkblue;
@@ -64,7 +71,9 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 //stylings to be added in JS to game play board
 
-
+.peg {
+    background-color: rgba(229, 229, 229, 1);
+}
 
 .peg-blue {
     background-color: blue;
@@ -96,7 +105,7 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 // Stylings for score section
 
-.white-score-peg {
+.score-peg-white {
     border-radius: 50%;
     width: 15px;
     height: 15px;
@@ -104,7 +113,7 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     display: block;
 }
 
-.red-score-peg {
+.score-peg-red {
     border-radius: 50%;
     width: 15px;
     height: 15px;

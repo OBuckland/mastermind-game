@@ -7,6 +7,14 @@
   margin: 0px;
 }
 
+.game-container {
+  background-color: #2e3140;
+}
+
+.input-pegs {
+  background-color: #2e3140;
+}
+
 .main__play-btn {
   color: darkblue;
   background: #c8efd6;
@@ -55,6 +63,10 @@
   background-color: aquamarine;
 }
 
+.peg {
+  background-color: #e5e5e5;
+}
+
 .peg-blue {
   background-color: blue;
 }
@@ -83,7 +95,7 @@
   background-color: aquamarine;
 }
 
-.white-score-peg {
+.score-peg-white {
   border-radius: 50%;
   width: 15px;
   height: 15px;
@@ -91,7 +103,7 @@
   display: block;
 }
 
-.red-score-peg {
+.score-peg-red {
   border-radius: 50%;
   width: 15px;
   height: 15px;
@@ -121,6 +133,11 @@
 .main__play-game-btn {
   padding: 10px;
   border-radius: 5px;
+}
+
+.game-container {
+  width: 90%;
+  height: 70%;
 }
 
 .colour-board__colour-btn {
@@ -168,6 +185,7 @@
   grid-column: 1/6;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .score-section {
@@ -180,8 +198,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  margin: 10px;
+  background-color: darkgrey;
+}
+.colour-board__colour-btn {
+  margin: 5px;
 }
 
 .peg {
   display: block;
+  margin-left: 10px;
+  margin-right: 10px;
 }

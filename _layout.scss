@@ -1,4 +1,6 @@
 
+
+
 .main {
     display: flex;
     justify-content: center;
@@ -35,6 +37,7 @@
     grid-column: 1/6;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .score-section {
@@ -47,8 +50,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    margin: 10px;
+    background-color: darkgrey;
+
+    &__colour-btn{
+        margin: 5px;  
+    }
 }
 
 .peg {
     display: block;
+    margin-left: 10px;
+    margin-right: 10px;
 }
