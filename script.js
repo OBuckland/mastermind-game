@@ -34,25 +34,25 @@ const gamePlayPage = () => {
   mainContainer.innerHTML = `
     <div class="game-container">
         <div id="code-combination">The Code</div>
-        <div class="input-pegs">1 2 3 4 </div>
-        <div class= "score-section">score</div>
-        <div class="input-pegs">input pegs</div>
-        <div class= "score-section">score</div>
-        <div class="input-pegs">input pegs</div>
-        <div class= "score-section">score</div>
-        <div class="input-pegs">input pegs</div>
-        <div class= "score-section">score</div>
-        <div class="input-pegs">input pegs</div>
-        <div class= "score-section">score</div>
-        <div class="input-pegs">input pegs5</div>
-        <div class= "score-section">score5</div>
-        <div class="input-pegs">input pegs4</div>
-        <div class= "score-section">score4</div>
-        <div class="input-pegs">input pegs3</div>
-        <div class= "score-section">score3</div>
-        <div class="input-pegs" id = "input-pegs2">input pegs2</div>
-        <div class= "score-section" id = "score-section2">score2</div>
-        <div class="input-pegs" id="input-pegs1"></div>
+        <div class="input-pegs" id="input-pegs10"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id="score-section10"></div>
+        <div class="input-pegs" id="input-pegs9"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id="score-section9"></div>
+        <div class="input-pegs" id="input-pegs8"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id="score-section8"></div>
+        <div class="input-pegs" id="input-pegs7"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id="score-section7"></div>
+        <div class="input-pegs" id="input-pegs6"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id="score-section6"></div>
+        <div class="input-pegs" id="input-pegs5"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id="score-section5"></div>
+        <div class="input-pegs" id="input-pegs4"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id="score-section4"></div>
+        <div class="input-pegs" id="input-pegs3"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id="score-section3"></div>
+        <div class="input-pegs" id="input-pegs2"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class= "score-section" id = "score-section2"></div>
+        <div class="input-pegs" id="input-pegs1"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class= "score-section" id="score-section1"></div>
     </div>
     <div class="colour-board">
@@ -71,8 +71,7 @@ const gamePlayPage = () => {
   const resetBtn = document.querySelector("#reset-btn");
   const checkBtn = document.querySelector("#check-btn");
   const deleteBtn = document.querySelector("#delete-btn");
-  const input1 = document.querySelector("#input-pegs1");
-  const codeReveal =  document.querySelector("#code-combination")
+  // const codeReveal =  document.querySelector("#code-combination")
   const colorButtons = document.querySelectorAll(".colour-board__colour-btn");
 
 
@@ -81,32 +80,32 @@ const gamePlayPage = () => {
   let currentRow = 1;
   const possibleColours = ["blue", "orange", "green", "pink", "yellow", "aqua"];
 
-    // CODE COMBINATION
+    // WINNING CODE COMBINATION
   for (let i = 0; i < 4; i++) {
     const randomIndex = Math.floor(Math.random() * possibleColours.length);
     const randomColour = possibleColours[randomIndex];
+    possibleColours.splice(randomIndex, 1)
     winningCombination.push(randomColour);
   }
   console.log(winningCombination);
 
   // ADD SELECTED COLOUR TO INPUT LINE
     const addColourToGuess = (event, rowId) => {
-        console.log(rowId);
         const input = document.querySelector(`#input-pegs${rowId}`);
-        console.log(input);
+        console.log(rowId);
         input.innerHTML = "";
         let colourChosen = event.target.innerText;
+        console.log(colourChosen)
         userCombination.push(colourChosen);
-        let currentUserCombination = [...userCombination];
-        currentUserCombination.map(colour => {
+        userCombination.map(colour => {
             return (input.innerHTML += `<span class="peg peg-${colour.toLowerCase()}"></span>`);
         });
-        console.log(userCombination, currentUserCombination);
+        console.log(userCombination);
     };
 
     colorButtons.forEach((colorButton) => {
         colorButton.addEventListener("click", event => {
-            if(userCombination.length < 4) {
+            if(userCombination.length < 4 && userCombination.includes(event.target.innerText) == false) {
             addColourToGuess(event, currentRow);
             }
         });
@@ -114,8 +113,25 @@ const gamePlayPage = () => {
 
     // Check code function 
     const checkCode = () => {
-       userCombination = [];
+      if (userCombination.length == 4) {
+
+   
        currentRow += 1;
+          // if (userCombination == winningCombination) {
+          //   Modal pops up saying you win
+          // }
+
+      //  const scores = document.querySelectorAll(`#score-section${rowId}`)
+      //  return  (scores.innerHTML += `<span class="score-peg-red"></span>`)   
+
+          userCombination.forEach((colour) => {
+            if (userCombination == winningCombination) {
+              const scores = document.querySelectorAll(`#score-section${currentRow}`)
+              (scores.innerHTML += `<span class="score-peg-red"></span>`);
+            }
+          } )
+          userCombination = [];
+        }
     };
 
     checkBtn.addEventListener("click", checkCode);
@@ -124,24 +140,13 @@ const gamePlayPage = () => {
 
   // DELETE BTN
   const deleteLastInput = () => {
-    console.log("last choice deleted")
+    let lastInputIndex = userCombination.length-1;
+    // userCombination[lastInputIndex].classList.remove(`peg-${colour}`);
+    userCombination.pop()
+    console.log(userCombination)
   };
 
   deleteBtn.addEventListener("click", deleteLastInput);
-
-//   const deleteLastInput = () => {
-//     if ((currentCharacter = deleteBtn)) {
-//       input1.innerHTML = "";
-//     } else {
-//       input1.innerHTML = input1.innerHTML.slice(0, input1.innerHTML.length - 1);
-//     }
-//     currentCharacter = deleteBtn;
-//   };
-
-
-
-
-
 
 
 
@@ -151,53 +156,9 @@ const gamePlayPage = () => {
   //Then I want to loop on to the next colour and do the same 4 times.
   //Once all 4 have been checked I want to move to input2.
 
-  const scoreSection1 = document.querySelector("#score-section1")
-
-
-//   const checkCode = () => {
-//       if (winningCombination.includes("blue")) {
-//         console.log("if statement run")
-//         const scorePeg = document.createElement('span');
-//         scorePeg.classList.add('white-score-peg');
-//         scoreSection1.appendChild(scorePeg);
-//   // scoreSection1.innerHTML.classList.add("white-score-peg");
-//  }  // else if // here I want to check the position of the peg if correct give red peg
-// // here if neither conditions met return nothing and move on to next colour. 
-// }
-
-// if (checkInputLength === true){
-//     currentCharacter = event.target.innerHTML;
-//     console.log(currentCharacter);
-//     // input1.innerHTML += `<span class="">${currentCharacter}</span>`;
-//     userCombination.push(currentCharacter)
-//     }
-//     // input1.innerHTML = userCombination
-    
-// };
-
-
-
-//   (let i = 0; i < 4; i++)
-
-
   // STYLINGS FOR SCORE PEGS
     // .white-score-peg 
     // .red-score-peg 
-
-  //  // INPUT LENGTH
-//   const checkInputLength = () => {
-//     if (userCombination.length > 4) {
-//       inputLengthBelowMax = false;
-//     } else {
-//       inputLengthBelowMax = true;
-//     }
-//   };
-
-  // GIVE RESULT OF CHECK INTO THE SCORE SECTION
-  // if right colour right place give red peg if right colour wrong place give white peg
-  // if wrong colour leave blank
-
-  // THEN MOVE TO INPUT2
 
   //RESET BTN
 };
