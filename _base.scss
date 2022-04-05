@@ -105,11 +105,13 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 // Stylings for score section
 
+
+
 .score-peg-white {
     border-radius: 50%;
     width: 15px;
     height: 15px;
-    background-color: green;
+    background-color: white;
     display: block;
 }
 
@@ -118,5 +120,6 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     width: 15px;
     height: 15px;
     background-color: red;
+    display: block;
 }
 

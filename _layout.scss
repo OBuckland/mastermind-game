@@ -29,11 +29,10 @@
 
 .question-marks {
     grid-column:  1/7;
-    border: solid green;
 }
 
 .input-pegs {
-    border: solid black;
+    border: 1px solid rgba(159, 149, 149, 1);
     grid-column: 1/6;
     display: flex;
     align-items: center;
@@ -41,7 +40,8 @@
 }
 
 .score-section {
-    border: solid palevioletred;
+    border: 1px solid rgba(159, 149, 149, 1);
+    background-color: $colour-background-board;
     grid-column: 6/8;
     display: flex;
 }
@@ -63,3 +63,9 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+// .score-peg-red {
+//  display: grid;
+//  grid-template-columns: 1fr 1fr;
+//  grid-template-rows: 1fr 1fr;
+// }
