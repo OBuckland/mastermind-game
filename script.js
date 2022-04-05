@@ -62,6 +62,8 @@ const gamePlayPage = () => {
         <button class="colour-board__colour-btn" id="pink">Pink</button>
         <button class="colour-board__colour-btn" id="yellow">Yellow</button>
         <button class="colour-board__colour-btn" id="aqua">Aqua</button>
+        <button class="colour-board__colour-btn" id="red">Red</button>
+        <button class="colour-board__colour-btn" id="white">White</button>
     </div>
     <div class="check-reset-btn">
         <button id="check-btn">Check</button>
@@ -78,7 +80,7 @@ const gamePlayPage = () => {
   let winningCombination = [];
   let userCombination = [];
   let currentRow = 1;
-  const possibleColours = ["blue", "orange", "green", "pink", "yellow", "aqua"];
+  const possibleColours = ["blue", "orange", "green", "pink", "yellow", "aqua", "red", "white"];
 
     // WINNING CODE COMBINATION
   for (let i = 0; i < 4; i++) {
@@ -113,25 +115,33 @@ const gamePlayPage = () => {
 
     // Check code function 
     const checkCode = () => {
-      if (userCombination.length == 4) {
+      let scoreSection = document.querySelector(`#score-section${currentRow}`);
+      if (userCombination.length == 4 && scoreSection.innerHTML == "") {
+        if (winningCombination[0] == userCombination[0].toLowerCase()) {
+          scoreSection.innerHTML += `<span class="score-peg-red"></span>`
+        } else if (winningCombination.includes(userCombination[0].toLowerCase())) {
+           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-   
-       currentRow += 1;
-          // if (userCombination == winningCombination) {
-          //   Modal pops up saying you win
-          // }
+        if (winningCombination[1]  == userCombination[1].toLowerCase()) {
+          scoreSection.innerHTML += `<span class="score-peg-red"></span>`
+        } else if (winningCombination.includes(userCombination[1].toLowerCase())) {
+          scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-      //  const scores = document.querySelectorAll(`#score-section${rowId}`)
-      //  return  (scores.innerHTML += `<span class="score-peg-red"></span>`)   
+        if (winningCombination[2] == userCombination[2].toLowerCase()) {
+          scoreSection.innerHTML += `<span class="score-peg-red"></span>`
+        } else if (winningCombination.includes(userCombination[2].toLowerCase())) {
+          scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-          userCombination.forEach((colour) => {
-            if (userCombination == winningCombination) {
-              const scores = document.querySelectorAll(`#score-section${currentRow}`)
-              (scores.innerHTML += `<span class="score-peg-red"></span>`);
-            }
-          } )
-          userCombination = [];
-        }
+        if (winningCombination[3] == userCombination[3].toLowerCase()) {
+           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
+        } else if (winningCombination.includes(userCombination[3].toLowerCase())) {
+          scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
+
+         }
+
+        currentRow += 1;
+        userCombination = [];
+        // scoreSection = "";
     };
 
     checkBtn.addEventListener("click", checkCode);
@@ -139,26 +149,25 @@ const gamePlayPage = () => {
 
 
   // DELETE BTN
-  const deleteLastInput = () => {
-    let lastInputIndex = userCombination.length-1;
-    // userCombination[lastInputIndex].classList.remove(`peg-${colour}`);
-    userCombination.pop()
-    console.log(userCombination)
-  };
+  const deleteLastInput = rowId => {
+    // prevent function from running if row is empty
+    if (userCombination.length === 0) return;
+    console.log("delete button clicked", userCombination);
+    // grab all the current pegs inside the current row
+    const currentInputs = document
+        .querySelector(`#input-pegs${rowId}`)
+        .querySelectorAll(".peg");
+    // with each delete button click - remove the choice from userCombination
+    userCombination.pop();
+    // grab last peg in the current row
+    const lastInput = currentInputs[currentInputs.length - 1];
+    // remove this lastInput from HTML
+    lastInput.parentNode.removeChild(lastInput);
+};
 
-  deleteBtn.addEventListener("click", deleteLastInput);
-
-
-
-  // CHECK CODE COMBINATION - CHECK BTN
-  // Check the fist colour against the winning combination, if the colour is in it add a white peg to the score section. Then if the colour is also in the same position say index 2, replace that with a red peg,
-  // If the colour is not there nothing happens. 
-  //Then I want to loop on to the next colour and do the same 4 times.
-  //Once all 4 have been checked I want to move to input2.
-
-  // STYLINGS FOR SCORE PEGS
-    // .white-score-peg 
-    // .red-score-peg 
+deleteBtn.addEventListener("click", () => {
+    deleteLastInput(currentRow);
+});
 
   //RESET BTN
 };
