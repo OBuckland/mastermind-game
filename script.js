@@ -33,7 +33,7 @@ howToPlayBtn.addEventListener("click", howToPlayPage);
 const gamePlayPage = () => {
   mainContainer.innerHTML = `
     <div class="game-container">
-        <div id="code-combination">The Code</div>
+        <div class="input-pegs" id="code-combination"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class="input-pegs" id="input-pegs10"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class= "score-section" id="score-section10"></div>
         <div class="input-pegs" id="input-pegs9"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
@@ -102,7 +102,6 @@ const gamePlayPage = () => {
         userCombination.map(colour => {
             return (input.innerHTML += `<span class="peg peg-${colour.toLowerCase()}"></span>`);
         });
-        console.log(userCombination);
     };
 
     colorButtons.forEach((colorButton) => {
@@ -115,7 +114,11 @@ const gamePlayPage = () => {
 
     // Check code function 
     const checkCode = () => {
+      let gameContainer = document.querySelector(".game-container")
       let scoreSection = document.querySelector(`#score-section${currentRow}`);
+      // if (userCombination == winningCombination) {
+      //   gameContainer.innerHTML += `<span class="modal" id="modal-dialog"></span>`
+      // }
       if (userCombination.length == 4 && scoreSection.innerHTML == "") {
         if (winningCombination[0] == userCombination[0].toLowerCase()) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
@@ -136,13 +139,13 @@ const gamePlayPage = () => {
            scoreSection.innerHTML += `<span class="score-peg-red"></span>`
         } else if (winningCombination.includes(userCombination[3].toLowerCase())) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
-
          }
-
-        currentRow += 1;
-        userCombination = [];
-        // scoreSection = "";
+         if (userCombination.length == 4) {
+          currentRow += 1;
+          userCombination = [];
+         }
     };
+    console.log(userCombination)
 
     checkBtn.addEventListener("click", checkCode);
 
