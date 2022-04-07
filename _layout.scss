@@ -24,7 +24,8 @@
 //GRID
 .game-container {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
+    border-radius: 5px;
 }
 
 .question-marks {
@@ -42,16 +43,20 @@
 .score-section {
     border: 1px solid rgba(159, 149, 149, 1);
     background-color: $colour-background-board;
-    grid-column: 6/8;
-    display: flex;
+    grid-column: 6/10;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
 }
 
 .colour-board {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     margin: 10px;
     background-color: darkgrey;
+    border-radius: 5px;
 
     &__colour-btn{
         margin: 5px;  
@@ -62,6 +67,10 @@
     display: block;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+#code-combination {
+    background-color: aliceblue;
 }
 
 // .score-peg-red {

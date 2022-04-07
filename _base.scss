@@ -40,33 +40,46 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     background: -webkit-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
 }
 
-
-
     #blue {
         background-color: blue;
+        color: transparent;
     }
     #orange {
-        background-color: orange;
+        background-color: rgb(244, 140, 6);
+        color: transparent;
     }
     #green {
-        background-color: green;
+        background-color: rgb(32, 139, 58);
+        color: transparent;
     }
     #pink {
         background-color: fuchsia;
+        color: transparent;
     }
     #red {
         background-color: red;
+        color: transparent;
     }
     #yellow {
         background-color: yellow;
+        color: transparent;
     }
     #purple {
         background-color: purple;
+        color: transparent;
     }
     #aqua {
         background-color: aquamarine;
+        color: transparent;
     }
-
+    #white{
+        background-color: white;
+        color: transparent;
+    }
+    #red{
+        background-color: red;
+        color: transparent;
+    }
 
 
 //stylings to be added in JS to game play board
@@ -80,11 +93,11 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 }
 
 .peg-orange {
-    background-color: orange;
+    background-color:  rgb(255, 142, 0);
 }
 
 .peg-green {
-    background-color: green;
+    background-color: rgb(119, 255, 0);
 }
 
 .peg-pink {
@@ -93,6 +106,10 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 .peg-red {
     background-color: red;
+}
+
+.peg-white {
+    background-color: white;
 }
 
 .peg-yellow {
@@ -123,3 +140,16 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     display: block;
 }
 
+.modal {
+    position: fixed;
+}
+
+.modal-dialog {
+    position: relative;
+    max-width: 800px;
+    max-height: 80vh;
+    border-radius: 5px;
+    background: var(--white);
+    overflow: auto;
+    cursor: default;
+}

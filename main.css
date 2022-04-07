@@ -33,38 +33,52 @@
 
 #blue {
   background-color: blue;
+  color: transparent;
 }
 
 #orange {
-  background-color: orange;
+  background-color: #f48c06;
+  color: transparent;
 }
 
 #green {
-  background-color: green;
+  background-color: #208b3a;
+  color: transparent;
 }
 
 #pink {
   background-color: fuchsia;
+  color: transparent;
 }
 
 #red {
   background-color: red;
+  color: transparent;
 }
 
 #yellow {
   background-color: yellow;
+  color: transparent;
 }
 
 #purple {
   background-color: purple;
+  color: transparent;
 }
 
 #aqua {
   background-color: aquamarine;
+  color: transparent;
 }
 
-.peg {
-  background-color: #e5e5e5;
+#white {
+  background-color: white;
+  color: transparent;
+}
+
+#red {
+  background-color: red;
+  color: transparent;
 }
 
 .peg-blue {
@@ -72,11 +86,11 @@
 }
 
 .peg-orange {
-  background-color: orange;
+  background-color: #ff8e00;
 }
 
 .peg-green {
-  background-color: green;
+  background-color: #77ff00;
 }
 
 .peg-pink {
@@ -85,6 +99,10 @@
 
 .peg-red {
   background-color: red;
+}
+
+.peg-white {
+  background-color: white;
 }
 
 .peg-yellow {
@@ -109,6 +127,20 @@
   height: 15px;
   background-color: red;
   display: block;
+}
+
+.modal {
+  position: fixed;
+}
+
+.modal-dialog {
+  position: relative;
+  max-width: 800px;
+  max-height: 80vh;
+  border-radius: 5px;
+  background: var(--white);
+  overflow: auto;
+  cursor: default;
 }
 
 .main {
@@ -141,6 +173,9 @@
   height: 70%;
 }
 
+.colour-board {
+  height: 80px;
+}
 .colour-board__colour-btn {
   width: 30px;
   height: 30px;
@@ -173,7 +208,8 @@
 
 .game-container {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
+  border-radius: 5px;
 }
 
 .question-marks {
@@ -191,16 +227,19 @@
 .score-section {
   border: 1px solid #9f9595;
   background-color: #2e3140;
-  grid-column: 6/8;
-  display: flex;
+  grid-column: 6/10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .colour-board {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   margin: 10px;
   background-color: darkgrey;
+  border-radius: 5px;
 }
 .colour-board__colour-btn {
   margin: 5px;
@@ -210,4 +249,8 @@
   display: block;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+#code-combination {
+  background-color: aliceblue;
 }
