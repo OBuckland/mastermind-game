@@ -24,7 +24,7 @@
 //GRID
 .game-container {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
     border-radius: 5px;
 }
 
@@ -47,7 +47,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-
+    align-items: center;
+    justify-items: center;
 }
 
 .colour-board {
@@ -69,8 +70,20 @@
     margin-right: 10px;
 }
 
-#code-combination {
-    background-color: aliceblue;
+// #code-combination {
+    
+// }
+
+.combination-peg  {  
+    width: 35px;
+    height: 35px;
+ }
+
+
+.question-mark{
+    font-family: $font-body;
+    font-size: 25px;
+    border-radius: 50%;
 }
 
 // .score-peg-red {

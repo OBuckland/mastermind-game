@@ -10,6 +10,11 @@
 .game-container {
   background-color: #2e3140;
 }
+@media screen and (min-width: 550px) {
+  .game-container {
+    max-width: 550px;
+  }
+}
 
 .input-pegs {
   background-color: #2e3140;
@@ -32,22 +37,22 @@
 }
 
 #blue {
-  background-color: blue;
+  background-color: #0015ff;
   color: transparent;
 }
 
 #orange {
-  background-color: #f48c06;
+  background-color: #ff7300;
   color: transparent;
 }
 
 #green {
-  background-color: #208b3a;
+  background-color: #90fe00;
   color: transparent;
 }
 
 #pink {
-  background-color: fuchsia;
+  background-color: #ff00a1;
   color: transparent;
 }
 
@@ -57,7 +62,7 @@
 }
 
 #yellow {
-  background-color: yellow;
+  background-color: #fffb00;
   color: transparent;
 }
 
@@ -67,34 +72,38 @@
 }
 
 #aqua {
-  background-color: aquamarine;
+  background-color: #00fff7;
   color: transparent;
 }
 
 #white {
-  background-color: white;
+  background-color: #8400ff;
   color: transparent;
 }
 
 #red {
-  background-color: red;
+  background-color: #ff0a12;
   color: transparent;
 }
 
+.peg {
+  background-color: #e5e5e5;
+}
+
 .peg-blue {
-  background-color: blue;
+  background-color: #0099cc;
 }
 
 .peg-orange {
-  background-color: #ff8e00;
+  background-color: #ff9900;
 }
 
 .peg-green {
-  background-color: #77ff00;
+  background-color: #009900;
 }
 
 .peg-pink {
-  background-color: fuchsia;
+  background-color: #ff6699;
 }
 
 .peg-red {
@@ -102,7 +111,7 @@
 }
 
 .peg-white {
-  background-color: white;
+  background-color: #330099;
 }
 
 .peg-yellow {
@@ -110,7 +119,7 @@
 }
 
 .peg-aqua {
-  background-color: aquamarine;
+  background-color: #990099;
 }
 
 .score-peg-white {
@@ -143,6 +152,11 @@
   cursor: default;
 }
 
+.fa-question {
+  width: 30px;
+  height: 30px;
+}
+
 .main {
   width: 100vw;
   height: 100vh;
@@ -169,7 +183,7 @@
 }
 
 .game-container {
-  width: 90%;
+  width: 85%;
   height: 70%;
 }
 
@@ -208,7 +222,7 @@
 
 .game-container {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
   border-radius: 5px;
 }
 
@@ -231,6 +245,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 }
 
 .colour-board {
@@ -251,6 +267,13 @@
   margin-right: 10px;
 }
 
-#code-combination {
-  background-color: aliceblue;
+.combination-peg {
+  width: 35px;
+  height: 35px;
+}
+
+.question-mark {
+  font-family: "quantico";
+  font-size: 25px;
+  border-radius: 50%;
 }
