@@ -1,6 +1,4 @@
 
-
-
 .main {
     display: flex;
     justify-content: center;
@@ -25,7 +23,6 @@
 .game-container {
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
-    border-radius: 5px;
 }
 
 .question-marks {
@@ -33,7 +30,6 @@
 }
 
 .input-pegs {
-    border: 1px solid rgba(159, 149, 149, 1);
     grid-column: 1/6;
     display: flex;
     align-items: center;
@@ -41,8 +37,6 @@
 }
 
 .score-section {
-    border: 1px solid rgba(159, 149, 149, 1);
-    background-color: $colour-background-board;
     grid-column: 6/10;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -57,7 +51,6 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
     margin: 10px;
     border: solid $colour-background-board;
-    background-color: rgba(229, 229, 229, 1);
     border-radius: 5px;
 
     &__colour-btn{
@@ -65,30 +58,31 @@
     }
 }
 
-.peg {
-    display: block;
-    margin-left: 10px;
-    margin-right: 10px;
+.help-modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 30%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
-// #code-combination {
-    
-// }
-
-.combination-peg  {  
-    width: 35px;
-    height: 35px;
- }
-
-
-.question-mark{
-    font-family: $font-body;
-    font-size: 25px;
-    border-radius: 50%;
+.help-modal-content {
+    margin: auto;
+    padding: 5px;
+    width: 80%;
 }
 
-// .score-peg-red {
-//  display: grid;
-//  grid-template-columns: 1fr 1fr;
-//  grid-template-rows: 1fr 1fr;
-// }
+.nav-btns {
+    // display: flex;
+    // justify-content: flex-end;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
+}
+
+.fa-home {
+    grid-column: 6/8;
+}
+
+

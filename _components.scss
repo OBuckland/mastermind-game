@@ -32,6 +32,10 @@
 .game-container {
     width: 85%;
     height: 70%;
+    border-radius: 5px;
+    @media screen and (min-width: 550px){
+        max-width: 550px;
+    }
 }
 
 .colour-board {
@@ -49,4 +53,39 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
+.score-peg-white {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
+
+.score-peg-red {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
+
+.question-mark-peg  {  
+    width: 35px;
+    height: 35px;
+ }
+
+.question-mark{
+    font-size: 25px;
+    border-radius: 50%;
+}
+
+.nav-btns {
+    width: 85%;
+    margin: 5px;
+    padding-right: 10px;
+    @media screen and (min-width: 550px){
+        max-width: 550px;
+    }
+}
+
