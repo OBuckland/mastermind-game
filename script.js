@@ -32,8 +32,18 @@ howToPlayBtn.addEventListener("click", howToPlayPage);
 // GAME PLAY PAGE
 const gamePlayPage = () => {
   mainContainer.innerHTML = `
+ 
+  <i class="fa fa-home"></i>
+    <button id="help-btn"><i class="fa-solid fa fa-question"></i></button>
+    <div id="helpBtnModal" class="help-modal">
+    <div class="help-modal-content">
+    <span class="close-help-modal">&times;</span>
+    <p>A red pin = right colour and right place. A white pin = right colour wrong place. No pin = wrong colour.</p>
+    </div>
+    </div>
+
     <div class="game-container">
-        <div class="input-pegs" id="code-combination"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class="input-pegs" id="code-combination"><span class="combination-peg peg"><p class="question-mark">?</p></span><span class="combination-peg peg"><p class="question-mark">?</p></span><span class="combination-peg peg"><p class="question-mark">?</p></span><span class="combination-peg peg"><p class="question-mark">?</p></span></div>
         <div class="input-pegs" id="input-pegs10"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class= "score-section" id="score-section10"></div>
         <div class="input-pegs" id="input-pegs9"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
@@ -52,7 +62,7 @@ const gamePlayPage = () => {
         <div class= "score-section" id="score-section3"></div>
         <div class="input-pegs" id="input-pegs2"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class= "score-section" id = "score-section2"></div>
-        <div class="input-pegs" id="input-pegs1"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
+        <div class="input-pegs" id="input-pegs1"> <span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class= "score-section" id="score-section1"></div>
     </div>
     <div class="colour-board">
@@ -65,7 +75,7 @@ const gamePlayPage = () => {
         <button class="colour-board__colour-btn" id="red">Red</button>
         <button class="colour-board__colour-btn" id="white">White</button>
     </div>
-    <div class="check-reset-btn">
+    <div class="check-delete-reset-btns">
         <button id="check-btn">Check</button>
         <button id="delete-btn">Delete</button>
         <button id="reset-btn">Reset</button>
@@ -73,6 +83,7 @@ const gamePlayPage = () => {
   const resetBtn = document.querySelector("#reset-btn");
   const checkBtn = document.querySelector("#check-btn");
   const deleteBtn = document.querySelector("#delete-btn");
+  const helpBtn = document.querySelector("#help-btn")
   // const codeReveal =  document.querySelector("#code-combination")
   const colorButtons = document.querySelectorAll(".colour-board__colour-btn");
 
@@ -173,4 +184,20 @@ deleteBtn.addEventListener("click", () => {
 });
 
   //RESET BTN
+resetBtn.addEventListener("click", gamePlayPage)
+
+//HELP BTN
+let helpModal = document.querySelector(".help-modal");
+let closeHelpModal = document.querySelector(".close-help-modal");
+
+helpBtn.addEventListener("click", () => {
+  helpModal.style.display = "block";
+})
+
+closeHelpModal.addEventListener("click", () => {
+  helpModal.style.display = "none";
+}) 
+
+
+// helpBtn.addEventListener("click", helpPage)
 };

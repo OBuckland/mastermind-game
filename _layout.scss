@@ -56,7 +56,8 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     margin: 10px;
-    background-color: darkgrey;
+    border: solid $colour-background-board;
+    background-color: rgba(229, 229, 229, 1);
     border-radius: 5px;
 
     &__colour-btn{
