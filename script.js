@@ -32,18 +32,26 @@ howToPlayBtn.addEventListener("click", howToPlayPage);
 // GAME PLAY PAGE
 const gamePlayPage = () => {
   mainContainer.innerHTML = `
- 
-  <i class="fa fa-home"></i>
+    <div class="nav-btns">
+    <button id="home-btn"><i class="fa fa-home"></i></button>
     <button id="help-btn"><i class="fa-solid fa fa-question"></i></button>
-    <div id="helpBtnModal" class="help-modal">
+    <div id="help-btn-modal" class="help-modal">
     <div class="help-modal-content">
     <span class="close-help-modal">&times;</span>
     <p>A red pin = right colour and right place. A white pin = right colour wrong place. No pin = wrong colour.</p>
     </div>
     </div>
+    </div>
+
+    <div id="winning-modal" class="winning-modal">
+          <div class="winning-modal-content">
+          <span class="close-winning-modal">&times;</span>
+          <p>Correct! You guessed the combination!</p>
+          </div>
+    </div>
 
     <div class="game-container">
-        <div class="input-pegs" id="code-combination"><span class="combination-peg peg"><p class="question-mark">?</p></span><span class="combination-peg peg"><p class="question-mark">?</p></span><span class="combination-peg peg"><p class="question-mark">?</p></span><span class="combination-peg peg"><p class="question-mark">?</p></span></div>
+        <div class="input-pegs" id="code-combination"><span class="question-mark-peg peg"><p class="question-mark">?</p></span><span class="question-mark-peg peg"><p class="question-mark">?</p></span><span class="question-mark-peg peg"><p class="question-mark">?</p></span><span class="question-mark-peg peg"><p class="question-mark">?</p></span></div>
         <div class="input-pegs" id="input-pegs10"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class= "score-section" id="score-section10"></div>
         <div class="input-pegs" id="input-pegs9"><span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
@@ -65,6 +73,7 @@ const gamePlayPage = () => {
         <div class="input-pegs" id="input-pegs1"> <span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class= "score-section" id="score-section1"></div>
     </div>
+    <div class="user-input-area">
     <div class="colour-board">
         <button class="colour-board__colour-btn" id ="blue">Blue</button>
         <button class="colour-board__colour-btn" id="orange">Orange</button>
@@ -73,25 +82,26 @@ const gamePlayPage = () => {
         <button class="colour-board__colour-btn" id="yellow">Yellow</button>
         <button class="colour-board__colour-btn" id="aqua">Aqua</button>
         <button class="colour-board__colour-btn" id="red">Red</button>
-        <button class="colour-board__colour-btn" id="white">White</button>
+        <button class="colour-board__colour-btn" id="purple">Purple</button>
     </div>
-    <div class="check-delete-reset-btns">
-        <button id="check-btn">Check</button>
-        <button id="delete-btn">Delete</button>
-        <button id="reset-btn">Reset</button>
+    <div class="game-play-btns">
+        <button class="game-play-btns__btns" id="check-btn">Check</button>
+        <button class="game-play-btns__btns" id="delete-btn">Delete</button>
+        <button class="game-play-btns__btns" id="reset-btn">Reset</button>
+    </div>
     </div>`;
+
   const resetBtn = document.querySelector("#reset-btn");
   const checkBtn = document.querySelector("#check-btn");
   const deleteBtn = document.querySelector("#delete-btn");
   const helpBtn = document.querySelector("#help-btn")
-  // const codeReveal =  document.querySelector("#code-combination")
   const colorButtons = document.querySelectorAll(".colour-board__colour-btn");
 
 
   let winningCombination = [];
   let userCombination = [];
   let currentRow = 1;
-  const possibleColours = ["blue", "orange", "green", "pink", "yellow", "aqua", "red", "white"];
+  const possibleColours = [{colour: "blue", class: 1}, "orange", "green", "pink", "yellow", "aqua", "purple", "red"];
 
     // WINNING CODE COMBINATION
   for (let i = 0; i < 4; i++) {
@@ -127,9 +137,14 @@ const gamePlayPage = () => {
     const checkCode = () => {
       let gameContainer = document.querySelector(".game-container")
       let scoreSection = document.querySelector(`#score-section${currentRow}`);
-      // if (userCombination == winningCombination) {
-      //   gameContainer.innerHTML += `<span class="modal" id="modal-dialog"></span>`
-      // }
+      let winningModal = document.querySelector(".winning-modal");
+      let closeWinningModal = document.querySelector(".close-winning-modal");
+
+      if (winningCombination == userCombination) {
+        // WINNING MODAL 
+            winningModal.style.display = "block";
+      } 
+
       if (userCombination.length == 4 && scoreSection.innerHTML == "") {
         if (winningCombination[0] == userCombination[0].toLowerCase()) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
@@ -198,6 +213,10 @@ closeHelpModal.addEventListener("click", () => {
   helpModal.style.display = "none";
 }) 
 
+//HOME BTN
+const homeBtn = document.querySelector("#home-btn");
 
-// helpBtn.addEventListener("click", helpPage)
+homeBtn.addEventListener("click", () => {
+ window.location.href = "http://127.0.0.1:5501/index.html"
+})
 };
