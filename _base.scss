@@ -132,6 +132,8 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     display: none;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+    padding-top: 10px;
+    padding-bottom:  10px;
 }
 
 .help-modal-content {
@@ -178,17 +180,17 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 .winning-modal {
     display: none;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color:  $colour-blank-spaces;
+    background-color:  $colour-blank-spaces;
 }
 
 .winning-modal-content {
-    background-color: #fefefe;
+    background-color: $colour-blank-spaces;
     border: 1px solid #888;
 }
 
 .close-winning-modal{
-    color: #aaa;
+    color: black;
     float: right;
 }
 
