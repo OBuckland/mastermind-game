@@ -34,6 +34,7 @@ const gamePlayPage = () => {
   mainContainer.innerHTML = `
     <div class="nav-btns">
     <button id="home-btn"><i class="fa fa-home"></i></button>
+    <button <i class="fa fa-universal-access"></i></button>
     <button id="help-btn"><i class="fa-solid fa fa-question"></i></button>
     <div id="help-btn-modal" class="help-modal">
     <div class="help-modal-content">
@@ -42,7 +43,7 @@ const gamePlayPage = () => {
     </div>
     </div>
     </div>
-
+  
     <div id="winning-modal" class="winning-modal">
           <div class="winning-modal-content">
           <span class="close-winning-modal">&times;</span>
@@ -101,7 +102,8 @@ const gamePlayPage = () => {
   let winningCombination = [];
   let userCombination = [];
   let currentRow = 1;
-  const possibleColours = [{colour: "blue", class: 1}, "orange", "green", "pink", "yellow", "aqua", "purple", "red"];
+  let possibleColours = ["blue", "orange", "green", "pink",  "yellow", "aqua", "purple",  "red"];
+  // let possibleColours = [{colour: "blue", id: 1}, {color: "orange", id: 2}, {color: "green", id: 3}, {color: "pink", id: 4}, {color: "yellow", id: 5}, {colour: "aqua", id: 6}, {colour: "purple", id: 7}, {colour: "red", id: 8}];
 
     // WINNING CODE COMBINATION
   for (let i = 0; i < 4; i++) {
@@ -125,6 +127,7 @@ const gamePlayPage = () => {
         });
     };
 
+
     colorButtons.forEach((colorButton) => {
         colorButton.addEventListener("click", event => {
             if(userCombination.length < 4 && userCombination.includes(event.target.innerText) == false) {
@@ -132,18 +135,19 @@ const gamePlayPage = () => {
             }
         });
     });
-
+  
     // Check code function 
     const checkCode = () => {
       let gameContainer = document.querySelector(".game-container")
       let scoreSection = document.querySelector(`#score-section${currentRow}`);
+
       let winningModal = document.querySelector(".winning-modal");
       let closeWinningModal = document.querySelector(".close-winning-modal");
-
-      if (winningCombination == userCombination) {
-        // WINNING MODAL 
-            winningModal.style.display = "block";
-      } 
+      const winningBtn = document.querySelector("#winning-btn")
+      
+       // WINNING MODAL
+          //  if (winningCombination === userCombination) {
+          //     winningModal.style.display = "block"; }
 
       if (userCombination.length == 4 && scoreSection.innerHTML == "") {
         if (winningCombination[0] == userCombination[0].toLowerCase()) {
@@ -174,6 +178,11 @@ const gamePlayPage = () => {
     console.log(userCombination)
 
     checkBtn.addEventListener("click", checkCode);
+
+    checkBtn.addEventListener("click", () => {
+      if (winningCombination == userCombination) {
+        winningModal.style.display = "block";}
+    });
 
 
 
