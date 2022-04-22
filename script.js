@@ -76,14 +76,14 @@ const gamePlayPage = () => {
     </div>
     <div class="user-input-area">
     <div class="colour-board">
-        <button class="colour-board__colour-btn" id ="blue">Blue</button>
-        <button class="colour-board__colour-btn" id="orange">Orange</button>
-        <button class="colour-board__colour-btn" id="green">Green</button>
-        <button class="colour-board__colour-btn" id="pink">Pink</button>
-        <button class="colour-board__colour-btn" id="yellow">Yellow</button>
-        <button class="colour-board__colour-btn" id="aqua">Aqua</button>
-        <button class="colour-board__colour-btn" id="red">Red</button>
-        <button class="colour-board__colour-btn" id="purple">Purple</button>
+        <button class="colour-board__colour-btn" id ="blue">blue</button>
+        <button class="colour-board__colour-btn" id="orange">orange</button>
+        <button class="colour-board__colour-btn" id="green">green</button>
+        <button class="colour-board__colour-btn" id="pink">pink</button>
+        <button class="colour-board__colour-btn" id="yellow">yellow</button>
+        <button class="colour-board__colour-btn" id="aqua">aqua</button>
+        <button class="colour-board__colour-btn" id="red">red</button>
+        <button class="colour-board__colour-btn" id="purple">purple</button>
     </div>
     <div class="game-play-btns">
         <button class="game-play-btns__btns" id="check-btn">Check</button>
@@ -102,8 +102,16 @@ const gamePlayPage = () => {
   let winningCombination = [];
   let userCombination = [];
   let currentRow = 1;
-  let possibleColours = ["blue", "orange", "green", "pink",  "yellow", "aqua", "purple",  "red"];
-  // let possibleColours = [{colour: "blue", id: 1}, {color: "orange", id: 2}, {color: "green", id: 3}, {color: "pink", id: 4}, {color: "yellow", id: 5}, {colour: "aqua", id: 6}, {colour: "purple", id: 7}, {colour: "red", id: 8}];
+  // let possibleColours = ["blue", "orange", "green", "pink",  "yellow", "aqua", "purple",  "red"];
+  let possibleColours = [
+    {colour: "blue", id: 1}, 
+    {color: "orange", id: 2}, 
+    {color: "green", id: 3}, 
+    {color: "pink", id: 4}, 
+    {color: "yellow", id: 5}, 
+    {colour: "aqua", id: 6}, 
+    {colour: "purple", id: 7}, 
+    {colour: "red", id: 8} ];
 
     // WINNING CODE COMBINATION
   for (let i = 0; i < 4; i++) {
@@ -145,9 +153,6 @@ const gamePlayPage = () => {
       let closeWinningModal = document.querySelector(".close-winning-modal");
       const winningBtn = document.querySelector("#winning-btn")
       
-       // WINNING MODAL
-          //  if (winningCombination === userCombination) {
-          //     winningModal.style.display = "block"; }
 
       if (userCombination.length == 4 && scoreSection.innerHTML == "") {
         if (winningCombination[0] == userCombination[0].toLowerCase()) {
@@ -170,19 +175,73 @@ const gamePlayPage = () => {
         } else if (winningCombination.includes(userCombination[3].toLowerCase())) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
          }
+
+         if (
+          (winningCombination[0] == userCombination[0].toLowerCase()) && 
+          (winningCombination[1]  == userCombination[1].toLowerCase()) && 
+          (winningCombination[2]  == userCombination[2].toLowerCase()) && 
+          (winningCombination[3]  == userCombination[3].toLowerCase())  )
+           {
+            winningModal.style.display = "block";
+          console.log("you win")
+        }
+        
+
          if (userCombination.length == 4) {
           currentRow += 1;
           userCombination = [];
          }
+
+                // WINNING MODAL
+
+
+      // let isEqual = winningCombination.length === userCombination.length && 
+      //    winningCombination.every((value, index) => value === userCombination[index]);
+      //    console.log(isEqual)
+
+
+
+      // let isEqual = winningCombination.toString() === userCombination.toString();
+      // console.log(isEqual)
+
+
+    
+      //  let winningMessage = winningCombination.every(function (element){
+      //   return userCombination.includes(element);
+      //  }) 
+
+      //  if (winningMessage == true) {
+      //    console.log("you win!")
+      //  }
+      //  console.log(winningMessage);
+
+      // const scorePegs = document.querySelectorAll(`.score-section${currentRow}`)
+
+      // if (scoreSection.classList ==  "score-peg-red"){
+      //       console.log("youwin")
+      // }
+       console.log(userCombination)
+
+          //  if (winningCombination === userCombination) {
+          //     winningModal.style.display = "block"; 
+          //     console.log('game won') }
+
+          // let isEqual = winningCombination.length === userCombination.length && 
+          // winningCombination.every((value, index) => value === userCombination[index]);
+         
+          // if (isEqual == true) {console.log("you won")}
+          // console.log(isEqual)
+
     };
-    console.log(userCombination)
+
+
 
     checkBtn.addEventListener("click", checkCode);
 
-    checkBtn.addEventListener("click", () => {
-      if (winningCombination == userCombination) {
-        winningModal.style.display = "block";}
-    });
+    // checkBtn.addEventListener("click", () => {
+    //   if (winningCombination == userCombination) {
+    //     winningModal.style.display = "block";}
+    // });
 
 
 
