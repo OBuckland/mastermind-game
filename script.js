@@ -36,7 +36,8 @@ const gamePlayPage = () => {
     <button id="home-btn"><i class="fa fa-home"></i></button>
     <button <i class="fa fa-universal-access"></i></button>
     <button id="help-btn"><i class="fa-solid fa fa-question"></i></button>
-    <div id="help-btn-modal" class="modal">
+    
+    <div class="modal" id="help-btn-modal" >
     <div class="modal-content">
     <span class="close-help-modal">&times;</span>
     <p>A red pin means one of your selected colours is correct and is in the right position.  <br> <br>  A white pin means one of your colours is correct but is in the wrong position.  <br> <br> No pin means one of the selected colours is not in the combination. </p>
@@ -44,7 +45,7 @@ const gamePlayPage = () => {
     </div>
     </div>
   
-    <div id="winning-modal" class="modal">
+    <div class="modal" id="winning-modal" >
           <div class="modal-content">
           <span class="close-winning-modal">&times;</span>
           <p>Correct! <br> You guessed the combination!</p>
@@ -90,6 +91,13 @@ const gamePlayPage = () => {
         <button class="game-play-btns__btns" id="delete-btn">Delete</button>
         <button class="game-play-btns__btns" id="reset-btn">Reset</button>
     </div>
+
+    <div class="modal" id="reset-modal"> 
+    <div class="modal-content"> 
+    <p>Are you sure you want to reset the game?</p> <button class= "reset-yes-no-btns" id="yes-btn">Yes</button> <button class= "reset-yes-no-btns" id="no-btn">No</button>
+    </div> </div>
+  
+
     </div>`;
 
   const resetBtn = document.querySelector("#reset-btn");
@@ -155,24 +163,24 @@ const gamePlayPage = () => {
       
 
       if (userCombination.length == 4 && scoreSection.innerHTML == "") {
-        if (winningCombination[0].colour == userCombination[0]) {
+        if (winningCombination[0] == userCombination[0]) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[0].colour)) {
+        } else if (winningCombination.includes(userCombination[0])) {
            scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[1]  == userCombination[1].colour) {
+        if (winningCombination[1]  == userCombination[1]) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[1].colour)) {
+        } else if (winningCombination.includes(userCombination[1])) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[2] == userCombination[2].colour) {
+        if (winningCombination[2] == userCombination[2]) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[2].colour)) {
+        } else if (winningCombination.includes(userCombination[2])) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[3] == userCombination[3].colour) {
+        if (winningCombination[3] == userCombination[3]) {
            scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[3].colour)) {
+        } else if (winningCombination.includes(userCombination[3])) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
          }
 
@@ -218,12 +226,23 @@ deleteBtn.addEventListener("click", () => {
     deleteLastInput(currentRow);
 });
 
-  //RESET BTN
-resetBtn.addEventListener("click", gamePlayPage)
+//RESET BTN
+const resetModal = document.querySelector("#reset-modal")
+const yesBtn = document.querySelector("#yes-btn")
+const noBtn = document.querySelector("#no-btn")
+resetBtn.addEventListener("click", () => {
+  resetModal.style.display = "block";
+})
+yesBtn.addEventListener("click", gamePlayPage);
+noBtn.addEventListener("click", () => {
+  resetModal.style.display ="none";
+})
+
+// resetBtn.addEventListener("click", gamePlayPage)
 
 //HELP BTN
-let helpModal = document.querySelector(".modal");
-let closeHelpModal = document.querySelector(".close-help-modal");
+const helpModal = document.querySelector(".modal");
+const closeHelpModal = document.querySelector(".close-help-modal");
 
 helpBtn.addEventListener("click", () => {
   helpModal.style.display = "block";

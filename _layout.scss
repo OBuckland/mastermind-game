@@ -61,13 +61,11 @@
     margin-top: 15px;
     }
 
-
+//BUTTONS
 .nav-btns {
     display: grid;
-    // grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 2fr 2fr 2fr 1fr 1fr 1fr 1fr 1fr;
 }
-
 
 #home-btn {
     grid-column: 7/8;

@@ -11,6 +11,10 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     font-size: 14px;
     padding: 0px;
     margin: 0px;
+
+    @media screen and (min-width: 550px){
+        font-size: 20px;
+    }
 }
 
 
@@ -48,10 +52,7 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 .colour-board {
         border: solid $colour-background-board;
     }
-.game-play-btns * {
-        background-color: $colour-background-board;
-        color: white;
-    }
+
 
 #blue {
         background-color: rgb(0, 21, 255);
@@ -148,6 +149,11 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 
 //BUTTONS
 
+.game-play-btns * {
+    background-color: $colour-background-board;
+    color: white;
+}
+
 #help-btn {
     border: none;
     margin: 5px;
@@ -158,6 +164,12 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     margin: 5px;
 }
 
+.reset-yes-no-btns {    
+    border-radius: 5px;
+    margin: 5px;
+    background-color: $colour-background-board;
+    color: white;
+}
 
 //MODALS
 #help-btn-modal {

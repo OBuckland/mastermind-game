@@ -44,4 +44,4 @@ The winning combination of colours are randomly selected for each new game. When
 
 [Figma design](https://www.figma.com/file/qVo0wg0ADB6dlIlPcCml8z/Mastermind "Link to Figma")
 
-[The Game](https://obuckland.github.io/mastermind-game/ "Link to Game")
+[Play Mastermind](https://obuckland.github.io/mastermind-game/ "Link to Game")
