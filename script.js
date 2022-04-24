@@ -36,18 +36,18 @@ const gamePlayPage = () => {
     <button id="home-btn"><i class="fa fa-home"></i></button>
     <button <i class="fa fa-universal-access"></i></button>
     <button id="help-btn"><i class="fa-solid fa fa-question"></i></button>
-    <div id="help-btn-modal" class="help-modal">
-    <div class="help-modal-content">
+    <div id="help-btn-modal" class="modal">
+    <div class="modal-content">
     <span class="close-help-modal">&times;</span>
-    <p>A red pin = right colour and right place. A white pin = right colour wrong place. No pin = wrong colour.</p>
+    <p>A red pin means one of your selected colours is correct and is in the right position.  <br> <br>  A white pin means one of your colours is correct but is in the wrong position.  <br> <br> No pin means one of the selected colours is not in the combination. </p>
     </div>
     </div>
     </div>
   
-    <div id="winning-modal" class="winning-modal">
-          <div class="winning-modal-content">
+    <div id="winning-modal" class="modal">
+          <div class="modal-content">
           <span class="close-winning-modal">&times;</span>
-          <p>Correct! You guessed the combination!</p>
+          <p>Correct! <br> You guessed the combination!</p>
           </div>
     </div>
 
@@ -102,16 +102,16 @@ const gamePlayPage = () => {
   let winningCombination = [];
   let userCombination = [];
   let currentRow = 1;
-  // let possibleColours = ["blue", "orange", "green", "pink",  "yellow", "aqua", "purple",  "red"];
-  let possibleColours = [
-    {colour: "blue", id: 1}, 
-    {color: "orange", id: 2}, 
-    {color: "green", id: 3}, 
-    {color: "pink", id: 4}, 
-    {color: "yellow", id: 5}, 
-    {colour: "aqua", id: 6}, 
-    {colour: "purple", id: 7}, 
-    {colour: "red", id: 8} ];
+  let possibleColours = ["blue", "orange", "green", "pink",  "yellow", "aqua", "purple",  "red"];
+  // let possibleColours = [
+  //   {colour: "blue", id: 1}, 
+  //   {color: "orange", id: 2}, 
+  //   {color: "green", id: 3}, 
+  //   {color: "pink", id: 4}, 
+  //   {color: "yellow", id: 5}, 
+  //   {colour: "aqua", id: 6}, 
+  //   {colour: "purple", id: 7}, 
+  //   {colour: "red", id: 8} ];
 
     // WINNING CODE COMBINATION
   for (let i = 0; i < 4; i++) {
@@ -149,33 +149,34 @@ const gamePlayPage = () => {
       let gameContainer = document.querySelector(".game-container")
       let scoreSection = document.querySelector(`#score-section${currentRow}`);
 
-      let winningModal = document.querySelector(".winning-modal");
+      let winningModal = document.querySelector("#winning-modal");
       let closeWinningModal = document.querySelector(".close-winning-modal");
       const winningBtn = document.querySelector("#winning-btn")
       
 
       if (userCombination.length == 4 && scoreSection.innerHTML == "") {
-        if (winningCombination[0] == userCombination[0].toLowerCase()) {
+        if (winningCombination[0].colour == userCombination[0]) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[0].toLowerCase())) {
+        } else if (winningCombination.includes(userCombination[0].colour)) {
            scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[1]  == userCombination[1].toLowerCase()) {
+        if (winningCombination[1]  == userCombination[1].colour) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[1].toLowerCase())) {
+        } else if (winningCombination.includes(userCombination[1].colour)) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[2] == userCombination[2].toLowerCase()) {
+        if (winningCombination[2] == userCombination[2].colour) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[2].toLowerCase())) {
+        } else if (winningCombination.includes(userCombination[2].colour)) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[3] == userCombination[3].toLowerCase()) {
+        if (winningCombination[3] == userCombination[3].colour) {
            scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[3].toLowerCase())) {
+        } else if (winningCombination.includes(userCombination[3].colour)) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
          }
 
+         // WINNING MODAL
          if (
           (winningCombination[0] == userCombination[0].toLowerCase()) && 
           (winningCombination[1]  == userCombination[1].toLowerCase()) && 
@@ -185,65 +186,16 @@ const gamePlayPage = () => {
             winningModal.style.display = "block";
           console.log("you win")
         }
-        
 
          if (userCombination.length == 4) {
           currentRow += 1;
           userCombination = [];
          }
 
-                // WINNING MODAL
-
-
-      // let isEqual = winningCombination.length === userCombination.length && 
-      //    winningCombination.every((value, index) => value === userCombination[index]);
-      //    console.log(isEqual)
-
-
-
-      // let isEqual = winningCombination.toString() === userCombination.toString();
-      // console.log(isEqual)
-
-
-    
-      //  let winningMessage = winningCombination.every(function (element){
-      //   return userCombination.includes(element);
-      //  }) 
-
-      //  if (winningMessage == true) {
-      //    console.log("you win!")
-      //  }
-      //  console.log(winningMessage);
-
-      // const scorePegs = document.querySelectorAll(`.score-section${currentRow}`)
-
-      // if (scoreSection.classList ==  "score-peg-red"){
-      //       console.log("youwin")
-      // }
        console.log(userCombination)
-
-          //  if (winningCombination === userCombination) {
-          //     winningModal.style.display = "block"; 
-          //     console.log('game won') }
-
-          // let isEqual = winningCombination.length === userCombination.length && 
-          // winningCombination.every((value, index) => value === userCombination[index]);
-         
-          // if (isEqual == true) {console.log("you won")}
-          // console.log(isEqual)
-
     };
 
-
-
     checkBtn.addEventListener("click", checkCode);
-
-    // checkBtn.addEventListener("click", () => {
-    //   if (winningCombination == userCombination) {
-    //     winningModal.style.display = "block";}
-    // });
-
-
 
   // DELETE BTN
   const deleteLastInput = rowId => {
@@ -270,7 +222,7 @@ deleteBtn.addEventListener("click", () => {
 resetBtn.addEventListener("click", gamePlayPage)
 
 //HELP BTN
-let helpModal = document.querySelector(".help-modal");
+let helpModal = document.querySelector(".modal");
 let closeHelpModal = document.querySelector(".close-help-modal");
 
 helpBtn.addEventListener("click", () => {

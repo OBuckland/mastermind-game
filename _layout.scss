@@ -61,19 +61,6 @@
     margin-top: 15px;
     }
 
-.help-modal {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 30%;
-    overflow: auto;
-}
-
-.help-modal-content {
-    margin: auto;
-    padding: 5px;
-    width: 80%;
-}
 
 .nav-btns {
     display: grid;
@@ -86,18 +73,22 @@
     grid-column: 7/8;
 }
 
-.winning-modal {
+//MODALS
+.modal {
     position: fixed;
     z-index: 1;
-    left: 0;
     top: 30%;
     width: auto;
     height: auto;
     overflow: auto;
 }
 
-.winning-modal-content {
+.modal-content {
     margin: auto;
     padding: 5px;
     width: 80%;
 }
+
+
+
+
