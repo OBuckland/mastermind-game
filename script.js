@@ -34,22 +34,19 @@ const gamePlayPage = () => {
   mainContainer.innerHTML = `
     <div class="nav-btns">
     <button id="home-btn"><i class="fa fa-home"></i></button>
-    <button <i class="fa fa-universal-access"></i></button>
+    <button id="universal-access" <i class="fa fa-universal-access"></i></button>
     <button id="help-btn"><i class="fa-solid fa fa-question"></i></button>
-    
-    <div class="modal" id="help-btn-modal" >
-    <div class="modal-content">
+    </div>
+  
+    <div class="modal" id="help-btn-modal">
     <span class="close-help-modal">&times;</span>
     <p>A red pin means one of your selected colours is correct and is in the right position.  <br> <br>  A white pin means one of your colours is correct but is in the wrong position.  <br> <br> No pin means one of the selected colours is not in the combination. </p>
     </div>
-    </div>
-    </div>
-  
+
     <div class="modal" id="winning-modal" >
-          <div class="modal-content">
-          <span class="close-winning-modal">&times;</span>
-          <p>Correct! <br> You guessed the combination!</p>
-          </div>
+          <p id="winning-modal-text">Correct! <br> You guessed the combination!</p>
+          <button class="home-replay-btns" id="play-again-btn">Play again</button>
+          <button class="home-replay-btns" id="home-btn-within-modal">Home</button>
     </div>
 
     <div class="game-container">
@@ -75,36 +72,38 @@ const gamePlayPage = () => {
         <div class="input-pegs" id="input-pegs1"> <span class="peg"></span><span class="peg"></span><span class="peg"></span><span class="peg"></span></div>
         <div class= "score-section" id="score-section1"></div>
     </div>
+
     <div class="user-input-area">
-    <div class="colour-board">
-        <button class="colour-board__colour-btn" id ="blue">blue</button>
-        <button class="colour-board__colour-btn" id="orange">orange</button>
-        <button class="colour-board__colour-btn" id="green">green</button>
-        <button class="colour-board__colour-btn" id="pink">pink</button>
-        <button class="colour-board__colour-btn" id="yellow">yellow</button>
-        <button class="colour-board__colour-btn" id="aqua">aqua</button>
-        <button class="colour-board__colour-btn" id="red">red</button>
-        <button class="colour-board__colour-btn" id="purple">purple</button>
-    </div>
-    <div class="game-play-btns">
-        <button class="game-play-btns__btns" id="check-btn">Check</button>
-        <button class="game-play-btns__btns" id="delete-btn">Delete</button>
-        <button class="game-play-btns__btns" id="reset-btn">Reset</button>
-    </div>
 
+      <div class="colour-board">
+          <button class="colour-board__colour-btn" id ="blue">blue</button>
+          <button class="colour-board__colour-btn" id="orange">orange</button>
+          <button class="colour-board__colour-btn" id="green">green</button>
+          <button class="colour-board__colour-btn" id="pink">pink</button>
+          <button class="colour-board__colour-btn" id="yellow">yellow</button>
+          <button class="colour-board__colour-btn" id="aqua">aqua</button>
+          <button class="colour-board__colour-btn" id="red">red</button>
+          <button class="colour-board__colour-btn" id="purple">purple</button>
+      </div>
+      <div class="game-play-btns">
+          <button class="game-play-btns__btns" id="check-btn">Check</button>
+          <button class="game-play-btns__btns" id="delete-btn">Delete</button>
+          <button class="game-play-btns__btns" id="reset-btn">Reset</button>
+      </div>
+
+    </div>
+    
     <div class="modal" id="reset-modal"> 
-    <div class="modal-content"> 
-    <p>Are you sure you want to reset the game?</p> <button class= "reset-yes-no-btns" id="yes-btn">Yes</button> <button class= "reset-yes-no-btns" id="no-btn">No</button>
-    </div> </div>
-  
-
+        <p>Are you sure you want to reset the game?</p> <button class= "reset-yes-no-btns" id="yes-btn">Yes</button> <button class= "reset-yes-no-btns" id="no-btn">No</button>
     </div>`;
 
   const resetBtn = document.querySelector("#reset-btn");
   const checkBtn = document.querySelector("#check-btn");
   const deleteBtn = document.querySelector("#delete-btn");
-  const helpBtn = document.querySelector("#help-btn")
+  const helpBtn = document.querySelector("#help-btn");
   const colorButtons = document.querySelectorAll(".colour-board__colour-btn");
+  const playAgain = document.querySelector("#play-again-btn");
+  const homeBtnWithinModal = document.querySelector("#home-btn-within-modal")
 
 
   let winningCombination = [];
@@ -120,6 +119,8 @@ const gamePlayPage = () => {
   //   {colour: "aqua", id: 6}, 
   //   {colour: "purple", id: 7}, 
   //   {colour: "red", id: 8} ];
+
+  playAgain.addEventListener("click", gamePlayPage);
 
     // WINNING CODE COMBINATION
   for (let i = 0; i < 4; i++) {
@@ -258,4 +259,10 @@ const homeBtn = document.querySelector("#home-btn");
 homeBtn.addEventListener("click", () => {
  window.location.href = "http://127.0.0.1:5501/index.html"
 })
+
+homeBtnWithinModal.addEventListener("click", () => {
+  window.location.href = "http://127.0.0.1:5501/index.html"
+})
+
 };
+
