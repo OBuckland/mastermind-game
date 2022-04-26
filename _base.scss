@@ -11,6 +11,7 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     font-size: 14px;
     padding: 0px;
     margin: 0px;
+    text-align: center;
 
     @media screen and (min-width: 550px){
         font-size: 20px;
@@ -48,11 +49,9 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     background: -webkit-linear-gradient(90deg, hsla(141, 54%, 86%, 1) 0%, hsla(333, 73%, 85%, 1) 50%, hsla(211, 58%, 79%, 1) 100%);
 }
 
-
 .colour-board {
         border: solid $colour-background-board;
     }
-
 
 #blue {
         background-color: rgb(0, 21, 255);
@@ -122,7 +121,6 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     display: block;
     background-color: white;
 }
-
 .score-peg-red {
     display: block;
     background-color: red;
@@ -169,6 +167,7 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     margin: 5px;
     background-color: $colour-background-board;
     color: white;
+    margin-top: 15px;
 }
 
 //MODALS
@@ -177,22 +176,15 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 }
 
 .modal {
-    display: none;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 10px;
-    padding-bottom:  10px;
-}
-
-.modal-content {
     background-color: $colour-background-starter-page;
-    border: 1px solid #888;
-    padding: 5px;
+    display: none;
+    position: fixed;
 }
 
 .close-help-modal{
     color: $colour-background-board;
-    float: right;
+    text-align: end;
+    display: block;
 }
 
 .close-help-modal:hover,
@@ -215,3 +207,14 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     cursor: pointer;
 }
 
+#winning-modal-text {
+    font-size: 18px;
+}
+
+.home-replay-btns {
+    border-radius: 5px;
+    margin: 5px;
+    background-color: $colour-background-board;
+    color: white;
+    margin-top: 15px;
+}
