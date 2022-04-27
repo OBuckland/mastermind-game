@@ -2,10 +2,6 @@ const howToPlayBtn = document.querySelector(".main__play-btn");
 const heading = document.querySelector(".main__heading");
 const introText = document.querySelector(".main__paragraph");
 const mainContainer = document.querySelector(".main");
-let currentCharacter = "";
-const inputs = [];
-
-// Functions
 
 // HOW TO PLAY PAGE 
 const howToPlayPage = () => {
@@ -26,27 +22,26 @@ const howToPlayPage = () => {
   const playBtn = document.querySelector(".main__play-game-btn");
   playBtn.addEventListener("click", gamePlayPage);
 };
-
 howToPlayBtn.addEventListener("click", howToPlayPage);
 
 // GAME PLAY PAGE
 const gamePlayPage = () => {
   mainContainer.innerHTML = `
     <div class="nav-btns">
-    <button id="home-btn"><i class="fa fa-home"></i></button>
-    <button id="universal-access" <i class="fa fa-universal-access"></i></button>
-    <button id="help-btn"><i class="fa-solid fa fa-question"></i></button>
+        <button id="home-btn"><i class="fa fa-home"></i></button>
+        <button id="universal-access" <i class="fa fa-universal-access"></i></button>
+        <button id="help-btn"><i class="fa-solid fa fa-question"></i></button>
     </div>
   
     <div class="modal" id="help-btn-modal">
-    <span class="close-help-modal">&times;</span>
-    <p>A red pin means one of your selected colours is correct and is in the right position.  <br> <br>  A white pin means one of your colours is correct but is in the wrong position.  <br> <br> No pin means one of the selected colours is not in the combination. </p>
+        <span class="close-help-modal">&times;</span>
+        <p>A red pin means one of your selected colours is correct and is in the right position.  <br> <br>  A white pin means one of your colours is correct but is in the wrong position.  <br> <br> No pin means one of the selected colours is not in the combination. </p>
     </div>
 
     <div class="modal" id="winning-modal" >
-          <p id="winning-modal-text">Correct! <br> You guessed the combination!</p>
-          <button class="home-replay-btns" id="play-again-btn">Play again</button>
-          <button class="home-replay-btns" id="home-btn-within-modal">Home</button>
+        <p id="winning-modal-text">Correct! <br> You guessed the combination!</p>
+        <button class="home-replay-btns" id="play-again-btn">Play again</button>
+        <button class="home-replay-btns" id="home-btn-within-modal">Home</button>
     </div>
 
     <div class="game-container">
@@ -74,7 +69,6 @@ const gamePlayPage = () => {
     </div>
 
     <div class="user-input-area">
-
       <div class="colour-board">
           <button class="colour-board__colour-btn" id ="blue">blue</button>
           <button class="colour-board__colour-btn" id="orange">orange</button>
@@ -90,7 +84,6 @@ const gamePlayPage = () => {
           <button class="game-play-btns__btns" id="delete-btn">Delete</button>
           <button class="game-play-btns__btns" id="reset-btn">Reset</button>
       </div>
-
     </div>
     
     <div class="modal" id="reset-modal"> 
@@ -104,7 +97,12 @@ const gamePlayPage = () => {
   const colorButtons = document.querySelectorAll(".colour-board__colour-btn");
   const playAgain = document.querySelector("#play-again-btn");
   const homeBtnWithinModal = document.querySelector("#home-btn-within-modal")
-
+  const helpModal = document.querySelector(".modal");
+  const closeHelpModal = document.querySelector(".close-help-modal");
+  const homeBtn = document.querySelector("#home-btn");
+  const resetModal = document.querySelector("#reset-modal")
+  const yesBtn = document.querySelector("#yes-btn")
+  const noBtn = document.querySelector("#no-btn")
 
   let winningCombination = [];
   let userCombination = [];
@@ -120,49 +118,39 @@ const gamePlayPage = () => {
   //   {colour: "purple", id: 7}, 
   //   {colour: "red", id: 8} ];
 
-  playAgain.addEventListener("click", gamePlayPage);
-
-    // WINNING CODE COMBINATION
+  // FUNCTIONS
   for (let i = 0; i < 4; i++) {
     const randomIndex = Math.floor(Math.random() * possibleColours.length);
     const randomColour = possibleColours[randomIndex];
     possibleColours.splice(randomIndex, 1)
     winningCombination.push(randomColour);
   }
+
   console.log(winningCombination);
 
-  // ADD SELECTED COLOUR TO INPUT LINE
-    const addColourToGuess = (event, rowId) => {
-        const input = document.querySelector(`#input-pegs${rowId}`);
-        console.log(rowId);
-        input.innerHTML = "";
-        let colourChosen = event.target.innerText;
-        console.log(colourChosen)
-        userCombination.push(colourChosen);
-        userCombination.map(colour => {
-            return (input.innerHTML += `<span class="peg peg-${colour.toLowerCase()}"></span>`);
+  const addColourToGuess = (event, rowId) => {
+    const input = document.querySelector(`#input-pegs${rowId}`);
+    input.innerHTML = "";
+    let colourChosen = event.target.innerText;
+    userCombination.push(colourChosen);
+    userCombination.map(colour => {
+      return (input.innerHTML += `<span class="peg peg-${colour.toLowerCase()}"></span>`);
         });
     };
 
-
-    colorButtons.forEach((colorButton) => {
-        colorButton.addEventListener("click", event => {
-            if(userCombination.length < 4 && userCombination.includes(event.target.innerText) == false) {
-            addColourToGuess(event, currentRow);
-            }
-        });
+  colorButtons.forEach((colorButton) => {
+    colorButton.addEventListener("click", event => {
+      if(userCombination.length < 4 && userCombination.includes(event.target.innerText) == false) {
+        addColourToGuess(event, currentRow);
+        }
+      });
     });
   
-    // Check code function 
-    const checkCode = () => {
-      let gameContainer = document.querySelector(".game-container")
-      let scoreSection = document.querySelector(`#score-section${currentRow}`);
 
-      let winningModal = document.querySelector("#winning-modal");
-      let closeWinningModal = document.querySelector(".close-winning-modal");
-      const winningBtn = document.querySelector("#winning-btn")
+  const checkCode = () => {
+    let scoreSection = document.querySelector(`#score-section${currentRow}`);
+    let winningModal = document.querySelector("#winning-modal");
       
-
       if (userCombination.length == 4 && scoreSection.innerHTML == "") {
         if (winningCombination[0] == userCombination[0]) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
@@ -183,67 +171,57 @@ const gamePlayPage = () => {
            scoreSection.innerHTML += `<span class="score-peg-red"></span>`
         } else if (winningCombination.includes(userCombination[3])) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
-         }
+      }
 
-         // WINNING MODAL
-         if (
+      if (
           (winningCombination[0] == userCombination[0].toLowerCase()) && 
           (winningCombination[1]  == userCombination[1].toLowerCase()) && 
           (winningCombination[2]  == userCombination[2].toLowerCase()) && 
           (winningCombination[3]  == userCombination[3].toLowerCase())  )
-           {
-            winningModal.style.display = "block";
-          console.log("you win")
-        }
+           { winningModal.style.display = "block"; }
 
-         if (userCombination.length == 4) {
+      if (userCombination.length == 4) {
           currentRow += 1;
           userCombination = [];
-         }
-
-       console.log(userCombination)
+        }
     };
 
-    checkBtn.addEventListener("click", checkCode);
-
-  // DELETE BTN
-  const deleteLastInput = rowId => {
-    // prevent function from running if row is empty
-    if (userCombination.length === 0) return;
-    console.log("delete button clicked", userCombination);
-    // grab all the current pegs inside the current row
-    const currentInputs = document
-        .querySelector(`#input-pegs${rowId}`)
-        .querySelectorAll(".peg");
-    // with each delete button click - remove the choice from userCombination
-    userCombination.pop();
-    // grab last peg in the current row
-    const lastInput = currentInputs[currentInputs.length - 1];
-    // remove this lastInput from HTML
-    lastInput.parentNode.removeChild(lastInput);
-};
-
+    const deleteLastInput = rowId => {
+      // prevent function from running if row is empty
+      if (userCombination.length === 0) return;
+      console.log("delete button clicked", userCombination);
+      // grab all the current pegs inside the current row
+      const currentInputs = document
+          .querySelector(`#input-pegs${rowId}`)
+          .querySelectorAll(".peg");
+      // with each delete button click - remove the choice from userCombination
+      userCombination.pop();
+      // grab last peg in the current row
+      const lastInput = currentInputs[currentInputs.length - 1];
+      // remove this lastInput from HTML
+      lastInput.parentNode.removeChild(lastInput);
+   };
+   
+//BUTTONS & EVENT LISTENERS
 deleteBtn.addEventListener("click", () => {
-    deleteLastInput(currentRow);
+  deleteLastInput(currentRow);
 });
 
-//RESET BTN
-const resetModal = document.querySelector("#reset-modal")
-const yesBtn = document.querySelector("#yes-btn")
-const noBtn = document.querySelector("#no-btn")
+checkBtn.addEventListener("click", checkCode);
+
 resetBtn.addEventListener("click", () => {
   resetModal.style.display = "block";
 })
+
+homeBtn.addEventListener("click", () => {
+  window.location.href = "http://127.0.0.1:5501/index.html"
+ })
+
 yesBtn.addEventListener("click", gamePlayPage);
+
 noBtn.addEventListener("click", () => {
   resetModal.style.display ="none";
 })
-
-// resetBtn.addEventListener("click", gamePlayPage)
-
-//HELP BTN
-const helpModal = document.querySelector(".modal");
-const closeHelpModal = document.querySelector(".close-help-modal");
 
 helpBtn.addEventListener("click", () => {
   helpModal.style.display = "block";
@@ -253,16 +231,10 @@ closeHelpModal.addEventListener("click", () => {
   helpModal.style.display = "none";
 }) 
 
-//HOME BTN
-const homeBtn = document.querySelector("#home-btn");
-
-homeBtn.addEventListener("click", () => {
- window.location.href = "http://127.0.0.1:5501/index.html"
-})
-
 homeBtnWithinModal.addEventListener("click", () => {
   window.location.href = "http://127.0.0.1:5501/index.html"
 })
 
-};
+playAgain.addEventListener("click", gamePlayPage);
 
+};
