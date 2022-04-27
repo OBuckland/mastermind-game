@@ -26,7 +26,6 @@
         @media screen and (min-width: 550px){
             width: 600px;
         }
-
     }
 
     &__play-btn {
@@ -140,6 +139,7 @@
         height: 100px;
     }
 }  
+
 .game-play-btns__btns {
     border-radius: 4px;
     height: 24px;
@@ -154,4 +154,30 @@
     padding: 15px;
     width: 45%;
     border-radius: 4px;
+}
+
+.home-replay-btns {
+    border-radius: 5px;
+    margin: 5px;
+    margin-top: 15px;
+}
+
+#help-btn {
+    border: none;
+    margin: 5px;
+}
+
+#help-btn-modal {
+    margin: 5px;
+}
+
+#home-btn{
+    border: none;
+    margin: 5px;
+}
+
+.reset-yes-no-btns {    
+    border-radius: 5px;
+    margin: 5px;
+    margin-top: 15px;
 }

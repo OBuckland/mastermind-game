@@ -156,26 +156,14 @@
   color: white;
 }
 
-#help-btn {
-  border: none;
-  margin: 5px;
-}
-
-#home-btn {
-  border: none;
-  margin: 5px;
-}
-
 .reset-yes-no-btns {
-  border-radius: 5px;
-  margin: 5px;
   background-color: #2e3140;
   color: white;
-  margin-top: 15px;
 }
 
-#help-btn-modal {
-  margin: 5px;
+.home-replay-btns {
+  background-color: #2e3140;
+  color: white;
 }
 
 .modal {
@@ -211,14 +199,6 @@
 
 #winning-modal-text {
   font-size: 18px;
-}
-
-.home-replay-btns {
-  border-radius: 5px;
-  margin: 5px;
-  background-color: #2e3140;
-  color: white;
-  margin-top: 15px;
 }
 
 .main {
@@ -395,6 +375,32 @@
   padding: 15px;
   width: 45%;
   border-radius: 4px;
+}
+
+.home-replay-btns {
+  border-radius: 5px;
+  margin: 5px;
+  margin-top: 15px;
+}
+
+#help-btn {
+  border: none;
+  margin: 5px;
+}
+
+#help-btn-modal {
+  margin: 5px;
+}
+
+#home-btn {
+  border: none;
+  margin: 5px;
+}
+
+.reset-yes-no-btns {
+  border-radius: 5px;
+  margin: 5px;
+  margin-top: 15px;
 }
 
 .main {

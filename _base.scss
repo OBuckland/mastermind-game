@@ -18,7 +18,6 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     }
 }
 
-
 .game-container {
     background-color: $colour-background-board;
 }
@@ -115,7 +114,6 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     background-color: rgb(255, 251, 0);
 }
 
-
 // Stylings for score section
 .score-peg-white {
     display: block;
@@ -152,29 +150,17 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     color: white;
 }
 
-#help-btn {
-    border: none;
-    margin: 5px;
-}
-
-#home-btn{
-    border: none;
-    margin: 5px;
-}
-
 .reset-yes-no-btns {    
-    border-radius: 5px;
-    margin: 5px;
     background-color: $colour-background-board;
     color: white;
-    margin-top: 15px;
+}
+
+.home-replay-btns {
+    background-color: $colour-background-board;
+    color: white;
 }
 
 //MODALS
-#help-btn-modal {
-    margin: 5px;
-}
-
 .modal {
     background-color: $colour-background-starter-page;
     display: none;
@@ -211,10 +197,3 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
     font-size: 18px;
 }
 
-.home-replay-btns {
-    border-radius: 5px;
-    margin: 5px;
-    background-color: $colour-background-board;
-    color: white;
-    margin-top: 15px;
-}
