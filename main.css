@@ -204,6 +204,7 @@
 .main {
   width: 100vw;
   height: 100vh;
+  word-spacing: 3px;
 }
 .main__heading {
   margin-bottom: 20px;
@@ -473,6 +474,6 @@
 
 .modal {
   z-index: 1;
-  top: 30%;
+  top: 20%;
   overflow: auto;
 }
