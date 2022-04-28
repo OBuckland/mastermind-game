@@ -404,6 +404,10 @@
   margin-top: 15px;
 }
 
+#winning-modal-text {
+  line-height: 2;
+}
+
 .main {
   display: flex;
   justify-content: center;
@@ -474,6 +478,5 @@
 
 .modal {
   z-index: 1;
-  top: 20%;
   overflow: auto;
 }
