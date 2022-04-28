@@ -6,7 +6,7 @@ const mainContainer = document.querySelector(".main");
 // HOW TO PLAY PAGE 
 const howToPlayPage = () => {
   mainContainer.innerHTML = `
-    <h2 class = "main__sub-heading-how-to-play">How do you play?</h2>
+    <h1 class = "main__heading">How do you play?</h2>
     <p class = "main__paragraph">
         Selecting a colour will add it to your sequence guess. Each colour will only be used once per sequence.  <br><br>
          Once you have made your guess, hit the check button and the Mastermind will give you feedback. <br><br>
@@ -39,8 +39,9 @@ const gamePlayPage = () => {
     </div>
 
     <div class="modal" id="winning-modal" >
-        <p id="winning-modal-text">Correct! <br> You guessed the combination!</p>
-        <button class="home-replay-btns" id="play-again-btn">Play again</button>
+        <p id="winning-modal-text">Correct!</p> 
+        <p> You cracked the code!</p>
+        <button class="home-replay-btns" id="play-again-btn">Replay</button>
         <button class="home-replay-btns" id="home-btn-within-modal">Home</button>
     </div>
 
