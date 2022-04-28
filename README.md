@@ -37,11 +37,11 @@ The winning combination of colours are randomly selected for each new game. When
 
 
 ### **Images**
-<img src="/images/first-page-screenshot.png" alt="Image of game">
-<img src="/images/second-page-screenshot.png" alt="Image of game">
-<img src="/images/Gameboard-screenshot.png" alt="Image of game">
-<img src="/images/reset-modal-screenshot.png" alt="Image of game">
-<img src="/images/winning-modal.png" alt="Image of game">
+<img src="/images/first-page-screenshot.png" alt="Image of game home page" width="300px">
+<img src="/images/second-page-screenshot.png" alt="Image of how to play page" width="300px">
+<img src="/images/Gameboard-screenshot.png" alt="Image of game play page" width="300px">
+<img src="/images/reset-modal-screenshot.png" alt="Image of reset modal" width="300px">
+<img src="/images/winning-modal.png" alt="Image of winning game modal" width="300px">
 
 ### **Links**
 [GitHub repository](https://github.com/OBuckland/mastermind-game "Link to GitHub")
