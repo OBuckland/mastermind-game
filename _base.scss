@@ -25,6 +25,7 @@ $colour-blank-spaces: rgba(229, 229, 229, 1);
 .input-pegs {
     background-color: $colour-background-board;
     border: 1px solid rgba(159, 149, 149, 1);
+    min-height: 45px;
 }
 
 .score-section {
