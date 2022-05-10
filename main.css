@@ -20,6 +20,7 @@
 .input-pegs {
   background-color: #2e3140;
   border: 1px solid #9f9595;
+  min-height: 45px;
 }
 
 .score-section {
@@ -49,42 +50,34 @@
 
 #blue {
   background-color: #0015ff;
-  color: transparent;
 }
 
 #orange {
   background-color: #ff7300;
-  color: transparent;
 }
 
 #green {
   background-color: #90fe00;
-  color: transparent;
 }
 
 #pink {
   background-color: #ff00a1;
-  color: transparent;
 }
 
 #yellow {
   background-color: #fffb00;
-  color: transparent;
 }
 
 #aqua {
   background-color: #00fff7;
-  color: transparent;
 }
 
 #purple {
   background-color: #990099;
-  color: transparent;
 }
 
 #red {
   background-color: #ff0a12;
-  color: transparent;
 }
 
 .peg {

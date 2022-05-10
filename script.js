@@ -20,12 +20,12 @@ const howToPlayPage = () => {
      <button class="main__play-game-btn">Play</button>
     `;
   const playBtn = document.querySelector(".main__play-game-btn");
-  playBtn.addEventListener("click", gamePlayPage);
+  playBtn.addEventListener("click", displayGame);
 };
 howToPlayBtn.addEventListener("click", howToPlayPage);
 
 // GAME PLAY PAGE
-const gamePlayPage = () => {
+const displayGame = () => {
   mainContainer.innerHTML = `
     <div class="nav-btns">
         <button id="home-btn"><i class="fa fa-home"></i></button>
@@ -71,14 +71,14 @@ const gamePlayPage = () => {
 
     <div class="user-input-area">
       <div class="colour-board">
-          <button class="colour-board__colour-btn" id ="blue">blue</button>
-          <button class="colour-board__colour-btn" id="orange">orange</button>
-          <button class="colour-board__colour-btn" id="green">green</button>
-          <button class="colour-board__colour-btn" id="pink">pink</button>
-          <button class="colour-board__colour-btn" id="yellow">yellow</button>
-          <button class="colour-board__colour-btn" id="aqua">aqua</button>
-          <button class="colour-board__colour-btn" id="red">red</button>
-          <button class="colour-board__colour-btn" id="purple">purple</button>
+          <button class="colour-board__colour-btn" id ="blue">1</button>
+          <button class="colour-board__colour-btn" id="orange">2</button>
+          <button class="colour-board__colour-btn" id="green">3</button>
+          <button class="colour-board__colour-btn" id="pink">4</button>
+          <button class="colour-board__colour-btn" id="yellow">5</button>
+          <button class="colour-board__colour-btn" id="aqua">6</button>
+          <button class="colour-board__colour-btn" id="red">7</button>
+          <button class="colour-board__colour-btn" id="purple">8</button>
       </div>
       <div class="game-play-btns">
           <button class="game-play-btns__btns" id="check-btn">Check</button>
@@ -104,12 +104,14 @@ const gamePlayPage = () => {
   const resetModal = document.querySelector("#reset-modal")
   const yesBtn = document.querySelector("#yes-btn")
   const noBtn = document.querySelector("#no-btn")
+  const universalAccessBtn = document.querySelector("#universal-access")
 
   let winningCombination = [];
   let userCombination = [];
   let currentRow = 1;
   let possibleColours = ["blue", "orange", "green", "pink",  "yellow", "aqua", "purple",  "red"];
-  // let possibleColours = [
+
+    // let possibleColours = [
   //   {colour: "blue", id: 1}, 
   //   {color: "orange", id: 2}, 
   //   {color: "green", id: 3}, 
@@ -132,7 +134,9 @@ const gamePlayPage = () => {
   const addColourToGuess = (event, rowId) => {
     const input = document.querySelector(`#input-pegs${rowId}`);
     input.innerHTML = "";
-    let colourChosen = event.target.innerText;
+    //could this be changed to id?
+      // let colourChosen = event.target.innerText;
+    let colourChosen = event.target.id;
     userCombination.push(colourChosen);
     userCombination.map(colour => {
       return (input.innerHTML += `<span class="peg peg-${colour.toLowerCase()}"></span>`);
@@ -141,7 +145,7 @@ const gamePlayPage = () => {
 
   colorButtons.forEach((colorButton) => {
     colorButton.addEventListener("click", event => {
-      if(userCombination.length < 4 && userCombination.includes(event.target.innerText) == false) {
+      if(userCombination.length < 4 && userCombination.includes(event.target.id) == false) {
         addColourToGuess(event, currentRow);
         }
       });
@@ -202,6 +206,10 @@ const gamePlayPage = () => {
       // remove this lastInput from HTML
       lastInput.parentNode.removeChild(lastInput);
    };
+
+   const addNumbersToColours = () => {
+      
+   }
    
 //BUTTONS & EVENT LISTENERS
 deleteBtn.addEventListener("click", () => {
@@ -218,7 +226,7 @@ homeBtn.addEventListener("click", () => {
   window.location.href = "http://127.0.0.1:5501/index.html"
  })
 
-yesBtn.addEventListener("click", gamePlayPage);
+yesBtn.addEventListener("click", displayGame);
 
 noBtn.addEventListener("click", () => {
   resetModal.style.display ="none";
@@ -236,6 +244,6 @@ homeBtnWithinModal.addEventListener("click", () => {
   window.location.href = "http://127.0.0.1:5501/index.html"
 })
 
-playAgain.addEventListener("click", gamePlayPage);
+playAgain.addEventListener("click", displayGame);
 
 };
