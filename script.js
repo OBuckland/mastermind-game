@@ -106,22 +106,41 @@ const displayGame = () => {
   const noBtn = document.querySelector("#no-btn")
   const universalAccessBtn = document.querySelector("#universal-access")
 
+  const purpleBtn = document.querySelector("#purple")
+  const redBtn = document.querySelector("#red")
+  const aquaBtn = document.querySelector("#aqua")
+  const yellowBtn = document.querySelector("#yellow")
+
   let winningCombination = [];
   let userCombination = [];
   let currentRow = 1;
-  let possibleColours = ["blue", "orange", "green", "pink",  "yellow", "aqua", "purple",  "red"];
 
-    // let possibleColours = [
-  //   {colour: "blue", id: 1}, 
-  //   {color: "orange", id: 2}, 
-  //   {color: "green", id: 3}, 
-  //   {color: "pink", id: 4}, 
-  //   {color: "yellow", id: 5}, 
-  //   {colour: "aqua", id: 6}, 
-  //   {colour: "purple", id: 7}, 
-  //   {colour: "red", id: 8} ];
+    let possibleColours = [
+    {colour: "blue", id: 1}, 
+    {colour: "orange", id: 2}, 
+    {colour: "green", id: 3}, 
+    {colour: "pink", id: 4}, 
+    {colour: "yellow", id: 5}, 
+    {colour: "aqua", id: 6}, 
+    {colour: "purple", id: 7}, 
+    {colour: "red", id: 8} ];
 
   // FUNCTIONS
+
+  // can I make an array of just the colours? 
+// let possibleColoursToArrayOfColours = possibleColours => {
+//   const keys = Object.keys()
+// }
+
+  // for (let i = 0; i < 4; i++) {
+  //   let possibleColoursArr = possibleColours.colour;
+  //   const randomIndex = Math.floor(Math.random() * possibleColoursArr.length);
+  //   const randomColour = possibleColoursArr[randomIndex];
+  //   possibleColoursArr.splice(randomIndex, 1)
+  //   winningCombination.push(randomColour);
+  // }
+
+// This is the original 
   for (let i = 0; i < 4; i++) {
     const randomIndex = Math.floor(Math.random() * possibleColours.length);
     const randomColour = possibleColours[randomIndex];
@@ -129,18 +148,30 @@ const displayGame = () => {
     winningCombination.push(randomColour);
   }
 
+  let winningColoursArr = winningCombination.map((winningColour) => {
+      return winningColour.colour;
+  }) 
+  
+ 
   console.log(winningCombination);
+  console.log(userCombination)
+  console.log(winningColoursArr)
 
   const addColourToGuess = (event, rowId) => {
     const input = document.querySelector(`#input-pegs${rowId}`);
     input.innerHTML = "";
     //could this be changed to id?
       // let colourChosen = event.target.innerText;
+      //${event.target.innerHTML}
     let colourChosen = event.target.id;
     userCombination.push(colourChosen);
     userCombination.map(colour => {
-      return (input.innerHTML += `<span class="peg peg-${colour.toLowerCase()}"></span>`);
-        });
+      let colourId = `colour${Btn.innerHTML}`
+      return (input.innerHTML += `<span class="peg peg-${colour.toLowerCase()}">${colourId}</span>`);
+        })
+
+    //     let currentColour = document.querySelector("#")
+    // event.target.innerHTML = 
     };
 
   colorButtons.forEach((colorButton) => {
@@ -157,32 +188,32 @@ const displayGame = () => {
     let winningModal = document.querySelector("#winning-modal");
       
       if (userCombination.length == 4 && scoreSection.innerHTML == "") {
-        if (winningCombination[0] == userCombination[0]) {
+        if (winningColoursArr[0] == userCombination[0]) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[0])) {
+        } else if (winningColoursArr.includes(userCombination[0])) {
            scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[1]  == userCombination[1]) {
+        if (winningColoursArr[1]  == userCombination[1]) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[1])) {
+        } else if (winningColoursArr.includes(userCombination[1])) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[2] == userCombination[2]) {
+        if (winningColoursArr[2] == userCombination[2]) {
           scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[2])) {
+        } else if (winningColoursArr.includes(userCombination[2])) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
 
-        if (winningCombination[3] == userCombination[3]) {
+        if (winningColoursArr[3] == userCombination[3]) {
            scoreSection.innerHTML += `<span class="score-peg-red"></span>`
-        } else if (winningCombination.includes(userCombination[3])) {
+        } else if (winningColoursArr.includes(userCombination[3])) {
           scoreSection.innerHTML += `<span class="score-peg-white"></span>`}
       }
 
       if (
-          (winningCombination[0] == userCombination[0].toLowerCase()) && 
-          (winningCombination[1]  == userCombination[1].toLowerCase()) && 
-          (winningCombination[2]  == userCombination[2].toLowerCase()) && 
-          (winningCombination[3]  == userCombination[3].toLowerCase())  )
+          (winningColoursArr[0] == userCombination[0].toLowerCase()) && 
+          (winningColoursArr[1]  == userCombination[1].toLowerCase()) && 
+          (winningColoursArr[2]  == userCombination[2].toLowerCase()) && 
+          (winningColoursArr[3]  == userCombination[3].toLowerCase())  )
            { winningModal.style.display = "block"; }
 
       if (userCombination.length == 4) {
