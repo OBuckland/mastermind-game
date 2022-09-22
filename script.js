@@ -71,14 +71,14 @@ const displayGame = () => {
 
     <div class="user-input-area">
       <div class="colour-board">
-          <button class="colour-board__colour-btn" id ="blue">1</button>
-          <button class="colour-board__colour-btn" id="orange">2</button>
-          <button class="colour-board__colour-btn" id="green">3</button>
-          <button class="colour-board__colour-btn" id="pink">4</button>
-          <button class="colour-board__colour-btn" id="yellow">5</button>
-          <button class="colour-board__colour-btn" id="aqua">6</button>
-          <button class="colour-board__colour-btn" id="red">7</button>
-          <button class="colour-board__colour-btn" id="purple">8</button>
+          <button class="colour-board__colour-btn" id ="blue"></button>
+          <button class="colour-board__colour-btn" id="orange"></button>
+          <button class="colour-board__colour-btn" id="green"></button>
+          <button class="colour-board__colour-btn" id="pink"></button>
+          <button class="colour-board__colour-btn" id="yellow"></button>
+          <button class="colour-board__colour-btn" id="aqua"></button>
+          <button class="colour-board__colour-btn" id="red"></button>
+          <button class="colour-board__colour-btn" id="purple"></button>
       </div>
       <div class="game-play-btns">
           <button class="game-play-btns__btns" id="check-btn">Check</button>
